@@ -3,12 +3,12 @@ package com.decorator.text.textdecor;
 import android.content.Context;
 import android.text.SpannableString;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.widget.TextView;
 
 import com.decorator.text.textdecor.txt.Decoration;
+import com.decorator.text.textdecor.txt.MyList;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class DecoratedText extends TextView {
@@ -54,23 +54,28 @@ public class DecoratedText extends TextView {
 //    }
 
 
-    public void setText(CharSequence... text) {
+    public void setText(Object... text) {
 
-        List<String> strings = new ArrayList<>();
+        List<Object> objects =  Arrays.asList(text);
+
+        MyList<Object> myList =  Arrays.asList(text);
+
         Decoration teDecoration;
 
         // List<Decoration> decoration = new ArrayList<>();
         SpannableString spannableString;
         spannableString = new SpannableString("");
-        for (CharSequence charSequence : text) {
-            if (charSequence instanceof Decoration) {
-                teDecoration = (Decoration) charSequence;
+
+        for (int i = 0; i < text.length; i++) {
+            
+
+            if (text[i] instanceof Decoration) {
+                teDecoration = (Decoration) text[i];
                 spannableString = new SpannableString(spannableString + teDecoration.getText());
-                strings.add(((Decoration) charSequence).getText());
-                Log.d(TAG, "setText: instance");
             }else{
-                spannableString = new SpannableString(spannableString + (String)charSequence);
+                spannableString = new SpannableString(spannableString + (String)text[i]);
             }
+
         }
 //        StringBuilder stringBuilder = new StringBuilder();
 //        for (Decoration decoration1 : decoration) {

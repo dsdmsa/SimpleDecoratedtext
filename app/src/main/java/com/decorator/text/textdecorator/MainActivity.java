@@ -64,10 +64,10 @@ public class MainActivity extends AppCompatActivity {
 
 
         decoratedText.setText(
-                "thirst",
-                head.text(" tx t \n"),
+                "thirst\n",
+                head.text("txt\n"),
                 "aaaaa\n",
-                head.text(" decor "),
+                head.text(" decor \n"),
                 "last"
         );
 
