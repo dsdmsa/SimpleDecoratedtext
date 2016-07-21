@@ -2,11 +2,11 @@ package com.decorator.text.textdecor;
 
 public class DecorationData {
     private int[] coordinates = new int[2];
-    private DecoratedTxt decoratedTxt;
+    private Decor decor;
 
-    public DecorationData(int[] coordinates, DecoratedTxt decoratedTxt) {
+    public DecorationData(int[] coordinates, Decor decor) {
         this.coordinates = coordinates;
-        this.decoratedTxt = decoratedTxt;
+        this.decor = decor;
     }
 
     public int[] getCoordinates() {
@@ -17,11 +17,11 @@ public class DecorationData {
         this.coordinates = coordinates;
     }
 
-    public DecoratedTxt getDecoratedTxt() {
-        return decoratedTxt;
+    public Decor getDecor() {
+        return decor;
     }
 
-    public void setDecoratedTxt(DecoratedTxt decoratedTxt) {
-        this.decoratedTxt = decoratedTxt;
+    public void setDecor(Decor decor) {
+        this.decor = decor;
     }
 }

@@ -9,26 +9,26 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DecoratedText extends TextView {
+public class PrettyText extends TextView {
 
     private static final String TAG = "withText view";
 
-    public DecoratedText(Context context) {
+    public PrettyText(Context context) {
         super(context);
     }
 
-    public DecoratedText(Context context, AttributeSet attrs) {
+    public PrettyText(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public DecoratedText(Context context, AttributeSet attrs, int defStyleAttr) {
+    public PrettyText(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
 
     public void setText(Object... strings) {
 
-        DecoratedTxt decoratedTxt;
+        Decor decor;
         SpannableString spannableString;
 
         StringBuilder stringBuilder = new StringBuilder();
@@ -39,11 +39,11 @@ public class DecoratedText extends TextView {
         String tempStr;
 
         for (int i = 0; i < strings.length; i++) {
-            if (strings[i] instanceof DecoratedTxt) {
-                decoratedTxt = (DecoratedTxt) strings[i];
-                tempStr = decoratedTxt.getText();
+            if (strings[i] instanceof Decor) {
+                decor = (Decor) strings[i];
+                tempStr = decor.getText();
                 stringBuilder.append(tempStr);
-                decorationDates.add(new DecorationData(new int[]{index, index + tempStr.length()}, decoratedTxt));
+                decorationDates.add(new DecorationData(new int[]{index, index + tempStr.length()}, decor));
                 index += tempStr.length();
             } else {
                 stringBuilder.append((String) strings[i]);
@@ -56,7 +56,7 @@ public class DecoratedText extends TextView {
 
         for (DecorationData decorationData : decorationDates) {
             Log.d(TAG, "setText: "+ decorationData.getCoordinates()[0]+ " " + decorationData.getCoordinates()[1]);
-            decorationData.getDecoratedTxt().decorateText(spannableString, decorationData.getCoordinates()[0], decorationData.getCoordinates()[1]);
+            decorationData.getDecor().decorateText(spannableString, decorationData.getCoordinates()[0], decorationData.getCoordinates()[1]);
         }
 
         setText(spannableString);

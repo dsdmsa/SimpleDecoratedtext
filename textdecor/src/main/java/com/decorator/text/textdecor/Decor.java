@@ -18,7 +18,7 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DecoratedTxt {
+public class Decor {
 
     private static final String TAG = "decor text";
     private static int DEFAULT_ABSOLUTE_TEXT_SIZE = 25;
@@ -38,7 +38,7 @@ public class DecoratedTxt {
     private TypefaceSpan typeface;
     private boolean roundedbackgroundSpan = false;
 
-    public DecoratedTxt(Builder builder) {
+    public Decor(Builder builder) {
         this.textSize = builder.textSize;
         this.textColor = builder.textColor;
         this.backgroundColor = builder.backgroundColor;
@@ -59,7 +59,7 @@ public class DecoratedTxt {
         return text;
     }
 
-    public DecoratedTxt withText(String text) {
+    public Decor withText(String text) {
         Log.d(TAG, "withText: ");
         strings.add(text);
         return this;
@@ -94,7 +94,7 @@ public class DecoratedTxt {
     }
 
     public static class Builder {
-        private static DecoratedTxt textDecoration;
+        private static Decor textDecoration;
 
         private int textSize = DEFAULT_ABSOLUTE_TEXT_SIZE;
         private int textColor = Color.BLACK;
@@ -118,7 +118,7 @@ public class DecoratedTxt {
             return this;
         }
 
-        public Builder setTextDecoration(DecoratedTxt textDecoration) {
+        public Builder setTextDecoration(Decor textDecoration) {
             Builder.textDecoration = textDecoration;
             return this;
         }
@@ -148,28 +148,28 @@ public class DecoratedTxt {
             return this;
         }
 
-        public Builder setUnderline(boolean underline) {
-            this.underline = underline;
+        public Builder setUnderline() {
+            this.underline = true;
             return this;
         }
 
-        public Builder setStrike(boolean strike) {
-            this.strike = strike;
+        public Builder setStrike() {
+            this.strike = true;
             return this;
         }
 
-        public Builder setSuperscript(boolean superscript) {
-            this.superscript = superscript;
+        public Builder setSuperscript() {
+            this.superscript = true;
             return this;
         }
 
-        public Builder setSubscript(boolean subscript) {
-            this.subscript = subscript;
+        public Builder setSubscript() {
+            this.subscript = true;
             return this;
         }
 
-        public DecoratedTxt build() {
-            return new DecoratedTxt(this);
+        public Decor build() {
+            return new Decor(this);
         }
 
     }

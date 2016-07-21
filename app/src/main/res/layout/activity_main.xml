@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context="com.decorator.text.textdecorator.MainActivity">
 
-    <com.decorator.text.textdecor.DecoratedText
+    <com.decorator.text.textdecor.PrettyText
         android:layout_width="match_parent"
         android:gravity="center"
         android:layout_height="match_parent"
