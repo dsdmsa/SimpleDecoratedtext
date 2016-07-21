@@ -11,7 +11,7 @@ import java.util.List;
 
 public class DecoratedText extends TextView {
 
-    private static final String TAG = "text view";
+    private static final String TAG = "withText view";
 
     public DecoratedText(Context context) {
         super(context);
@@ -36,18 +36,19 @@ public class DecoratedText extends TextView {
         List<DecorationData> decorationDates = new ArrayList<>();
 
         int index = 0;
+        String tempStr;
 
         for (int i = 0; i < strings.length; i++) {
             if (strings[i] instanceof DecoratedTxt) {
                 decoratedTxt = (DecoratedTxt) strings[i];
-                stringBuilder.append(decoratedTxt.getText());
-                decorationDates.add(new DecorationData(new int[]{index, index + decoratedTxt.getText().length()}, decoratedTxt));
-                index += decoratedTxt.getText().length();
+                tempStr = decoratedTxt.getText();
+                stringBuilder.append(tempStr);
+                decorationDates.add(new DecorationData(new int[]{index, index + tempStr.length()}, decoratedTxt));
+                index += tempStr.length();
             } else {
                 stringBuilder.append((String) strings[i]);
                 index += ((String) strings[i]).length();
             }
-
         }
 
 
