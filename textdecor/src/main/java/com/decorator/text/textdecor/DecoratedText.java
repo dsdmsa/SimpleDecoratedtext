@@ -3,12 +3,10 @@ package com.decorator.text.textdecor;
 import android.content.Context;
 import android.text.SpannableString;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.widget.TextView;
 
-import com.decorator.text.textdecor.txt.Decoration;
-import com.decorator.text.textdecor.txt.MyList;
-
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 public class DecoratedText extends TextView {
@@ -27,82 +25,41 @@ public class DecoratedText extends TextView {
         super(context, attrs, defStyleAttr);
     }
 
-//    public void setText(Object... o) {
-//
-//        DecoratedTextPiece decoratedText;
-//
-//        String s;
-//
-//        for (Object o1 : o) {
-//
-//            try {
-//                decoratedText = (DecoratedTextPiece) o1;
-//
-//
-//            } catch (Exception text) {
-//                Log.d(TAG, "setText: error decor");
-//            }
-//
-//            try {
-//                s = (String) o1;
-//
-//            } catch (Exception e) {
-//                Log.d(TAG, "setText: string");
-//            }
-//
-//        }
-//    }
 
+    public void setText(Object... strings) {
 
-    public void setText(Object... text) {
-
-        List<Object> objects =  Arrays.asList(text);
-
-        MyList<Object> myList =  Arrays.asList(text);
-
-        Decoration teDecoration;
-
-        // List<Decoration> decoration = new ArrayList<>();
+        DecoratedTxt decoratedTxt;
         SpannableString spannableString;
-        spannableString = new SpannableString("");
 
-        for (int i = 0; i < text.length; i++) {
-            
+        StringBuilder stringBuilder = new StringBuilder();
 
-            if (text[i] instanceof Decoration) {
-                teDecoration = (Decoration) text[i];
-                spannableString = new SpannableString(spannableString + teDecoration.getText());
-            }else{
-                spannableString = new SpannableString(spannableString + (String)text[i]);
+        List<DecorationData> decorationDates = new ArrayList<>();
+
+        int index = 0;
+
+        for (int i = 0; i < strings.length; i++) {
+            if (strings[i] instanceof DecoratedTxt) {
+                decoratedTxt = (DecoratedTxt) strings[i];
+                stringBuilder.append(decoratedTxt.getText());
+                decorationDates.add(new DecorationData(new int[]{index, index + decoratedTxt.getText().length()}, decoratedTxt));
+                index += decoratedTxt.getText().length();
+            } else {
+                stringBuilder.append((String) strings[i]);
+                index += ((String) strings[i]).length();
             }
 
         }
-//        StringBuilder stringBuilder = new StringBuilder();
-//        for (Decoration decoration1 : decoration) {
-//            stringBuilder.append(decoration1.getText());
-//        }
+
+
+        spannableString = new SpannableString(stringBuilder);
+
+        for (DecorationData decorationData : decorationDates) {
+            Log.d(TAG, "setText: "+ decorationData.getCoordinates()[0]+ " " + decorationData.getCoordinates()[1]);
+            decorationData.getDecoratedTxt().decorateText(spannableString, decorationData.getCoordinates()[0], decorationData.getCoordinates()[1]);
+        }
+
         setText(spannableString);
 
     }
-
-//    public void setText(DecoratedTextPiece... textPieces) {
-//
-//        StringBuilder stringBuilder = new StringBuilder();
-//        SpannableString spannableString;
-//        for (DecoratedTextPiece textPiece : textPieces) {
-//            stringBuilder.append(textPiece.getDecoratedText());
-//        }
-//        spannableString = new SpannableString(stringBuilder);
-//
-//        int index = 0;
-//
-//        for (DecoratedTextPiece textPiece : textPieces) {
-//            if (textPiece.getTextDecoration() != null)
-//                textPiece.getTextDecoration().decorate(spannableString, index, index + textPiece.getDecoratedText().length());
-//            index += textPiece.getDecoratedText().length();
-//        }
-//
-//        setText(spannableString);
-//    }
 
 }
