@@ -1,6 +1,6 @@
 package com.decorator.text.textdecor;
 
-public class DecorationData {
+ class DecorationData {
     private int[] coordinates = new int[2];
     private TextDecor textDecor;
 

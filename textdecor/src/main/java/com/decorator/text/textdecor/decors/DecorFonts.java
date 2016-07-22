@@ -2,9 +2,9 @@ package com.decorator.text.textdecor.decors;
 
 import android.content.Context;
 import android.text.style.CharacterStyle;
-import android.text.style.TypefaceSpan;
 
 import com.decorator.text.textdecor.Decoration;
+import com.decorator.text.textdecor.utils.CustomTypefaceSpan;
 import com.decorator.text.textdecor.utils.FontUtil;
 
 public class DecorFonts {
@@ -13,7 +13,7 @@ public class DecorFonts {
         return new Decoration() {
             @Override
             public CharacterStyle newInstance() {
-                return new TypefaceSpan(FontUtil.get(context,font).toString());
+                return new CustomTypefaceSpan(font,FontUtil.get(context,font));
             }
         };
     }

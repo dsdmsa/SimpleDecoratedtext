@@ -8,6 +8,7 @@ import com.decorator.text.textdecor.decors.DecorColor;
 import com.decorator.text.textdecor.PrettyText;
 import com.decorator.text.textdecor.TextDecor;
 import com.decorator.text.textdecor.decors.DecorFonts;
+import com.decorator.text.textdecor.decors.DecorSize;
 import com.decorator.text.textdecor.decors.DecorText;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,18 +24,22 @@ public class MainActivity extends AppCompatActivity {
 
         TextDecor power = new TextDecor.Builder()
                 .decorate(DecorText.SUBSCRIPT)
+                .decorate(DecorSize.absoluteTextSize(25))
                 .build();
 
         TextDecor redback = new TextDecor.Builder()
                 .decorate(DecorColor.setBackground(Color.BLUE))
                 .decorate(DecorColor.setTextColor(Color.GREEN))
+                .decorate(DecorFonts.font(this,"fonts/Roboto-Thin.ttf"))
                 .decorate(DecorText.UNDERLINE)
                 .build();
 
         TextDecor withFont = new TextDecor.Builder()
                 .decorate(DecorColor.setBackground(Color.GREEN))
-                .decorate(DecorFonts.font(this,"doridrobot.ttf"))
+                .decorate(DecorText.BOLD)
+                .decorate(DecorFonts.font(this, "fonts/doridrobot.ttf"))
                 .build();
+
 
             prettyText.setText(
                     withFont.withText("text with font\n"),
