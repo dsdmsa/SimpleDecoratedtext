@@ -3,12 +3,12 @@ package com.decorator.text.textdecorator;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.text.style.BackgroundColorSpan;
-import android.text.style.ForegroundColorSpan;
 
-import com.decorator.text.textdecor.Decor;
-import com.decorator.text.textdecor.Decoration;
+import com.decorator.text.textdecor.decors.DecorColor;
 import com.decorator.text.textdecor.PrettyText;
+import com.decorator.text.textdecor.TextDecor;
+import com.decorator.text.textdecor.decors.DecorFonts;
+import com.decorator.text.textdecor.decors.DecorText;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,30 +19,30 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        prettyText = (PrettyText) findViewById(R.id.decor);
-        Decor decor = new Decor.Builder()
-                .decorate(Decoration.UNDERLINE)
-                .decorate(Decoration.STRIKE)
-                .decorate(new BackgroundColorSpan(Color.CYAN))
+        prettyText = (PrettyText) findViewById(R.id.textDecor);
+
+        TextDecor power = new TextDecor.Builder()
+                .decorate(DecorText.SUBSCRIPT)
                 .build();
 
-        Decor decor2 = new Decor.Builder()
-                .decorate(new BackgroundColorSpan(Color.RED))
-                .decorate(new ForegroundColorSpan(Color.BLUE))
+        TextDecor redback = new TextDecor.Builder()
+                .decorate(DecorColor.setBackground(Color.BLUE))
+                .decorate(DecorColor.setTextColor(Color.GREEN))
+                .decorate(DecorText.UNDERLINE)
                 .build();
 
-        Decor decor3 = new Decor.Builder()
-                .decorate(new ForegroundColorSpan(Color.GREEN))
+        TextDecor withFont = new TextDecor.Builder()
+                .decorate(DecorColor.setBackground(Color.GREEN))
+                .decorate(DecorFonts.font(this,"doridrobot.ttf"))
                 .build();
 
-        prettyText.setText(
-                " 12 ",
-                decor3.withText("text"),
-                decor.withText("  34  "),
-                decor2.withText(" 56 "),
-                decor.withText("  78  "),
-                decor2.withText(" 90 ")
-        );
+            prettyText.setText(
+                    withFont.withText("text with font\n"),
+                   " 3 * 3 = ",
+                    redback.withText("9"),
+                    " or 3",
+                    power.withText("2")
+            );
 
     }
 }

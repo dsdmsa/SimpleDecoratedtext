@@ -26,9 +26,9 @@ public class PrettyText extends TextView {
     }
 
 
-    public void setText(Object... strings) {
+    public void setText(Object... strings)  {
 
-        Decor decor;
+        TextDecor textDecor;
         SpannableString spannableString;
 
         StringBuilder stringBuilder = new StringBuilder();
@@ -39,11 +39,11 @@ public class PrettyText extends TextView {
         String tempStr;
 
         for (int i = 0; i < strings.length; i++) {
-            if (strings[i] instanceof Decor) {
-                decor = (Decor) strings[i];
-                tempStr = decor.getText();
+            if (strings[i] instanceof TextDecor) {
+                textDecor = (TextDecor) strings[i];
+                tempStr = textDecor.getText();
                 stringBuilder.append(tempStr);
-                decorationDates.add(new DecorationData(new int[]{index, index + tempStr.length()}, decor));
+                decorationDates.add(new DecorationData(new int[]{index, index + tempStr.length()}, textDecor));
                 index += tempStr.length();
             } else {
                 stringBuilder.append((String) strings[i]);
@@ -51,16 +51,13 @@ public class PrettyText extends TextView {
             }
         }
 
-
         spannableString = new SpannableString(stringBuilder);
 
         for (DecorationData decorationData : decorationDates) {
             Log.d(TAG, "setText: "+ decorationData.getCoordinates()[0]+ " " + decorationData.getCoordinates()[1]);
-            decorationData.getDecor().decorateText(spannableString, decorationData.getCoordinates()[0], decorationData.getCoordinates()[1]);
+            decorationData.getTextDecor().decorateText(spannableString, decorationData.getCoordinates()[0], decorationData.getCoordinates()[1]);
         }
-
         setText(spannableString);
-
     }
 
 }
