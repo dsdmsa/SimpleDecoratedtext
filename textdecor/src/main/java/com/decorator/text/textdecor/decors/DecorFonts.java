@@ -12,7 +12,7 @@ public class DecorFonts {
     public static Decoration font(final Context context, final String font){
         return new Decoration() {
             @Override
-            public CharacterStyle newInstance() {
+            public CharacterStyle newDecorInstance() {
                 return new CustomTypefaceSpan(font,FontUtil.get(context,font));
             }
         };

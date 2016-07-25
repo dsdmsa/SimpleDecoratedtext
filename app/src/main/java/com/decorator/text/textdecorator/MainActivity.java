@@ -52,7 +52,8 @@ public class MainActivity extends AppCompatActivity {
                 robofont.withText("fonts are cool to add\n"),
                 textMod.withText("italic and underline easy way\n"),
                 withFont.withText("ecuations :\n"),
-                " 3 * 3 = 9"," or 3",power.withText("2")
+                " 3 * 3 = 9"," or 3",power.withText("2\n"),
+                robofont.withText(blueBack.withText("font + blue"))
         );
 
     }

@@ -11,7 +11,7 @@ public class DecorColor {
     public static Decoration setTextColor (final int color){
         return new Decoration() {
             @Override
-            public CharacterStyle newInstance(){
+            public CharacterStyle newDecorInstance(){
                 return new ForegroundColorSpan(color);
             }
         };
@@ -20,7 +20,7 @@ public class DecorColor {
     public static Decoration setBackground (final int color){
         return new Decoration() {
             @Override
-            public CharacterStyle newInstance() {
+            public CharacterStyle newDecorInstance() {
                 return new BackgroundColorSpan(color);
             }
         };

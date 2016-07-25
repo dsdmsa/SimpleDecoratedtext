@@ -19,7 +19,8 @@ public class TextDecor {
         this.characterStyles = builder.decorations;
     }
 
-    public String getText() {
+
+    String getText() {
         text = strings.get(0);
         Log.d(TAG, "getText: " + text + " " + characterStyles.size());
         strings.remove(0);
@@ -33,18 +34,25 @@ public class TextDecor {
         return this;
     }
 
-    public void decorateText(SpannableString spannableString, int firstCharIndex, int lastCharIndex)  {
+    public TextDecor withText(TextDecor text) {
+        strings.add(text.getText());
+        characterStyles.addAll(text.characterStyles);
+        return this;
+    }
 
-        Log.d(TAG, "decorateText: "+spannableString);
+    void decorateText(SpannableString spannableString, int firstCharIndex, int lastCharIndex) {
+
+        Log.d(TAG, "decorateText: " + spannableString);
 
         for (Decoration characterStyle : characterStyles) {
-            spannableString.setSpan(  characterStyle.newInstance(), firstCharIndex, lastCharIndex, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+            spannableString.setSpan(characterStyle.newDecorInstance(), firstCharIndex, lastCharIndex, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
 
         }
     }
 
     public static class Builder {
         private List<Decoration> decorations = new ArrayList<>();
+
         public Builder decorate(Decoration decoration) {
             decorations.add(decoration);
             return this;
