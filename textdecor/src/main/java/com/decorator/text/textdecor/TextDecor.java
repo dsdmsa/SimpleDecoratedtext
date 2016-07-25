@@ -26,6 +26,7 @@ public class TextDecor {
         return text;
     }
 
+    // TODO: 7/25/16 add withtext that take parameter another textdecor
     public TextDecor withText(String text) {
         Log.d(TAG, "withText: ");
         strings.add(text);
