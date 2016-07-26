@@ -7,7 +7,7 @@
 ![alt tag](https://s26.postimg.org/4j98g8bmx/screenshot.jpg)
 
 ### Example of use :
-- ##### add in you xml Prittytext instead of TextView
+-  add in you xml Prittytext instead of TextView
 ```xml
     <com.decorator.text.textdecor.PrettyText
         android:layout_width="match_parent"
@@ -15,7 +15,7 @@
         android:layout_height="match_parent"
         android:id="@+id/textDecor"/>
 ```
-- ##### in you code create some decoration :
+- in you code create some decoration :
 ```java
  TextDecor power = new TextDecor.Builder()
                 .decorate(DecorText.SUPERSCRIPT)
@@ -41,12 +41,12 @@
                 .decorate(DecorText.UNDERLINE)
                 .build();
 ```
-- ##### get the prittytext from xml :
+-  get the prittytext from xml :
 ```java
     prettyText = (PrettyText) findViewById(R.id.textDecor);
 ```
 
-- ##### set the text : 
+-  set the text : 
 ```java
      prettyText.setText(
                 "this is a simple text, with no decorations\n",
@@ -58,14 +58,14 @@
         );
 ```
 
-- ##### To setUp the librarry add in you build.gradle the folowing depencence
+- To setUp the librarry add in you build.gradle the folowing depencence
 ```groovy
         compile 'com.dsdmsa.text:text_decor_V01:0.0.2'
 ```
-- #### Visit [bintray link](https://bintray.com/dsdmsa/AndroidText/com.dsdmsa.text) for details
+- Visit [bintray link](https://bintray.com/dsdmsa/AndroidText/com.dsdmsa.text) for details
 
 ## Custom decorations :
-- #### You can create you own decoratiuons
+-  You can create you own decoratiuons
 1.  For spans woth params use code like this :
 ```java
   public static Decoration decor(final int param){
