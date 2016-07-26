@@ -5,6 +5,7 @@ import android.text.style.CharacterStyle;
 import android.text.style.ForegroundColorSpan;
 
 import com.decorator.text.textdecor.Decoration;
+import com.decorator.text.textdecor.decors.costum.RoundedBackgroundSpan;
 
 public class DecorColor {
 
@@ -26,6 +27,15 @@ public class DecorColor {
         };
     }
 
+    public static Decoration setRoundBackground(final int corner, final int padding, final int backgroundColor, final int textColor, final RoundedBackgroundSpan.Gravity gravity) {
+        return new Decoration() {
+            @Override
+            public CharacterStyle newDecorInstance() {
+                return new RoundedBackgroundSpan(corner, padding, backgroundColor, textColor, gravity);
+            }
+        };
+    }
+
     public static Decoration setRoundBackground(final int corner, final int padding, final int backgroundColor, final int textColor) {
         return new Decoration() {
             @Override
@@ -34,4 +44,5 @@ public class DecorColor {
             }
         };
     }
+
 }

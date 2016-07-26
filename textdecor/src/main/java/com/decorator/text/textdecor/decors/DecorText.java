@@ -1,12 +1,13 @@
 package com.decorator.text.textdecor.decors;
 
+import android.graphics.BlurMaskFilter;
 import android.graphics.Typeface;
 import android.text.style.CharacterStyle;
+import android.text.style.MaskFilterSpan;
 import android.text.style.StrikethroughSpan;
 import android.text.style.StyleSpan;
 import android.text.style.SubscriptSpan;
 import android.text.style.SuperscriptSpan;
-import android.text.style.TypefaceSpan;
 import android.text.style.UnderlineSpan;
 
 import com.decorator.text.textdecor.Decoration;
@@ -14,7 +15,7 @@ import com.decorator.text.textdecor.Decoration;
 public class DecorText {
     public static final Decoration UNDERLINE = new Decoration() {
         @Override
-        public CharacterStyle newDecorInstance(){
+        public CharacterStyle newDecorInstance() {
             return new UnderlineSpan();
         }
     };
@@ -61,4 +62,13 @@ public class DecorText {
         }
     };
 
+    public static Decoration setBlur(final int radius, final BlurMaskFilter.Blur style) {
+
+        return new Decoration() {
+            @Override
+            public CharacterStyle newDecorInstance() {
+                return new MaskFilterSpan(new BlurMaskFilter(radius, style));
+            }
+        };
+    }
 }
