@@ -24,11 +24,13 @@ public class MainActivity extends AppCompatActivity {
 
         TextDecor power = new TextDecor.Builder()
                 .decorate(DecorText.SUPERSCRIPT)
-                .decorate(DecorSize.absoluteTextSize(25))
+//                .decorate(DecorSize.absoluteTextSize(25))
+                .decorate(DecorColor.setRoundBackground(15,31,Color.BLACK,Color.RED))
                 .build();
 
         TextDecor robofont = new TextDecor.Builder()
                 .decorate(DecorFonts.font(this, "fonts/Roboto-Thin.ttf"))
+                .decorate(DecorColor.setRoundBackground(30,30,Color.BLACK,Color.RED))
                 .build();
 
         TextDecor withFont = new TextDecor.Builder()
@@ -38,11 +40,13 @@ public class MainActivity extends AppCompatActivity {
 
         TextDecor blueBack = new TextDecor.Builder()
                 .decorate(DecorColor.setBackground(Color.BLUE))
+                .decorate(DecorColor.setRoundBackground(30,30,Color.BLACK,Color.GREEN))
                 .decorate(DecorColor.setTextColor(Color.GREEN))
                 .build();
 
         TextDecor textMod = new TextDecor.Builder()
                 .decorate(DecorText.ITALIC)
+                .decorate(DecorColor.setRoundBackground(30,30,Color.BLACK,Color.RED))
                 .decorate(DecorText.UNDERLINE)
                 .build();
 
@@ -52,8 +56,7 @@ public class MainActivity extends AppCompatActivity {
                 robofont.withText("fonts are cool to add\n"),
                 textMod.withText("italic and underline easy way\n"),
                 withFont.withText("ecuations :\n"),
-                " 3 * 3 = 9"," or 3",power.withText("2\n"),
-                robofont.withText(blueBack.withText("font + blue"))
+                " 3 * 3 = 9"," or 3",power.withText("2\n")
         );
 
     }

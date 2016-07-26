@@ -7,12 +7,6 @@ def final VERSION_NAME = "_V01"
 def final APP_NAME = "text_decor"
 def final VERSION_CODE = 1;
 
-def final PACKAGE_NAME = "com.decorator.text.textdecor"
-
-def final GITHUB_URL = "https://github.com/dsdmsa/SimpleDecoratedtext"
-
-def final BINTRY_API_KEY = "5c106565d5a2a34085c4b609984ea7cc491ba75c"
-
 ext {
     PUBLISH_GROUP_ID = "com.dsdmsa.text"
     PUBLISH_ARTIFACT_ID = APP_NAME + VERSION_NAME
@@ -40,9 +34,8 @@ android {
 
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-//    compile 'com.android.support:appcompat-v7:24.1.1'
+    compile 'com.android.support:appcompat-v7:24.1.1'
 }
 
 def buildTime() {
