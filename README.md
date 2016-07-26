@@ -4,7 +4,7 @@ this library is designed to help design complex text views in easy way
 
 using a simple PrettyText in xml cam help you design complex textview , example in image below
 
-![alt tag](https://lh3.googleusercontent.com/OGU6TcnkCXf2wXam7yhxgOTXITUoK17wV02CHHlogn6gJ_WbOSvjJd984eIsZwtMFSt22liVOdemIq2hi2YL7dJ1xmoo4BrKyYzCCDTy_eD9CXAQZ0EKPNpKUBAy6to_MQmRlNaJOfTnLMSzwe-EIe8ZYlYY1wkmtEclp9kccn2ssOtjsvz2CxmjgzXrGqg5OW6T7NQHDTK_mbz59Vot5Tu6YP1cTrpbQcADY-kdk9xUgmIYRClLuXNp4XH46M2zk2opoV-WsVUG9cfl1QEtYaSlNS1hCIM5gcUWHafPIZ2Hy8dxQtT23Yg3vYrivgLN8KI-n8FKJDcKLUYUxFcXIpYJC14w4TwrT39NGmL7gNUobTi5KvmzLEDv7n76cMGprx5IT79UFOPFo8LIl_Vl4Ch3W16IiJh-NlERxVO5UCYL6Y53S4loTppeuxj3G30kfKCz7Ypwa0gYVFp8s1SMCV5lhHrZhE6PtMF_DvgoSoWhpU8lxL-k_ZcOnESCBUNqn83uVoul3pHDhKxpZv28lcwAp4w3bP2pk1nRWdq79Iw5FPZhQLozUnOMB_rpYBcbkVJDlNrn60CNM4-zGgpLHvDTKci8eFw=w533-h946-no)
+![alt tag](https://s26.postimg.org/4j98g8bmx/screenshot.jpg)
 
 Example of use :
 
