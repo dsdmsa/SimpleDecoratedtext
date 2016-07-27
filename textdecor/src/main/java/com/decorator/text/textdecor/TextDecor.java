@@ -11,7 +11,7 @@ public class TextDecor {
     private List<String> strings = new ArrayList<>();
     private List<Decoration> characterStyles = new ArrayList<>();
 
-    public TextDecor(Builder builder) {
+    private TextDecor(Builder builder) {
         this.characterStyles = builder.decorations;
     }
 

@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
                 .decorate(DecorText.UNDERLINE)
                 .build();
 
+        
       TextDecor rbackg = new TextDecor.Builder()
                 .decorate(DecorSize.relativeTextSize(30))
                 .decorate(DecorText.BOLD)
