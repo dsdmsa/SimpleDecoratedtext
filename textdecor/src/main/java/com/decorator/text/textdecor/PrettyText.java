@@ -31,16 +31,16 @@ public class PrettyText extends TextView {
         int index = 0;
         String tempStr;
 
-        for (int i = 0; i < strings.length; i++) {
-            if (strings[i] instanceof TextDecor) {
-                textDecor = (TextDecor) strings[i];
+        for (Object string : strings) {
+            if (string instanceof TextDecor) {
+                textDecor = (TextDecor) string;
                 tempStr = textDecor.getText();
                 stringBuilder.append(tempStr);
                 decorationDates.add(new DecorationData(new int[]{index, index + tempStr.length()}, textDecor));
                 index += tempStr.length();
             } else {
-                stringBuilder.append((String) strings[i]);
-                index += ((String) strings[i]).length();
+                stringBuilder.append((String) string);
+                index += ((String) string).length();
             }
         }
 

@@ -1,4 +1,4 @@
-package com.decorator.text.textdecor.decors.costum;
+package com.decorator.text.textdecor.custom_decors;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;

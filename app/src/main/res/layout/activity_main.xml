@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="#225500"
     android:layout_height="match_parent"
+    android:background="#225500"
+    android:orientation="horizontal"
     tools:context="com.decorator.text.textdecorator.MainActivity">
 
     <com.decorator.text.textdecor.PrettyText
-        android:layout_width="match_parent"
-        android:layout_margin="10dp"
-        android:layout_height="match_parent"
-        android:id="@+id/textDecor"/>
-</RelativeLayout>
+        android:id="@+id/textDecor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp" />
+
+    <com.decorator.text.textdecor.PrettyText
+        android:id="@+id/textDecor2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp" />
+</LinearLayout>
