@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.decorator.text.textdecor.PrettyText;
 import com.decorator.text.textdecor.TextDecor;
-import com.decorator.text.textdecor.custom_decors.RoundedBackgroundSpan;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,36 +21,38 @@ public class MainActivity extends AppCompatActivity {
         prettyText2 = (PrettyText) findViewById(R.id.textDecor2);
 
         TextDecor rbackg = new TextDecor.Builder()
-                .decorate(TextDecor.relativeTextSize(30))
-                .decorate(TextDecor.BOLD)
-                .decorate(TextDecor.setRoundBackground(5, 11, Color.YELLOW, Color.BLACK, RoundedBackgroundSpan.Gravity.CENTER))
-                .decorate(TextDecor.font(this, "fonts/Roboto-Thin.ttf"))
+                .decorate(TextDecor.Companion.UNDERLINE())
+                .decorate(TextDecor.Companion.relativeTextSize(30))
+//                .decorate(TextDecor.Companion.font(this, "fonts/Roboto-Thin.ttf"))
+                .decorate(TextDecor.Companion.setBackground(Color.RED))
+                .decorate(TextDecor.Companion.setTextColor(Color.BLACK))
+                .decorate(TextDecor.Companion.BOLD())
                 .build();
 
         TextDecor siz = new TextDecor.Builder()
-                .decorate(TextDecor.setTextColor(Color.WHITE))
-                .decorate(TextDecor.absoluteTextSize(70))
-                .decorate(TextDecor.setBackground(Color.RED))
-                .decorate(TextDecor.UNDERLINE)
-                .decorate(TextDecor.STRINKE)
-                .decorate(TextDecor.BOLD)
+//                .decorate(TextDecor.setTextColor(Color.WHITE))
+//                .decorate(TextDecor.absoluteTextSize(70))
+//                .decorate(TextDecor.setBackground(Color.RED))
+//                .decorate(TextDecor.UNDERLINE)
+//                .decorate(TextDecor.STRINKE)
+//                .decorate(TextDecor.BOLD)
                 .build();
 
         TextDecor col = new TextDecor.Builder()
-                .decorate(TextDecor.setBackground(Color.BLUE))
-                .decorate(TextDecor.setTextColor(Color.WHITE))
+//                .decorate(TextDecor.setBackground(Color.BLUE))
+//                .decorate(TextDecor.setTextColor(Color.WHITE))
                 .build();
 
         TextDecor round = new TextDecor.Builder()
-                .decorate(TextDecor.setRoundBackground(5, 11, Color.YELLOW, Color.BLACK))
+//                .decorate(TextDecor.setRoundBackground(5, 11, Color.YELLOW, Color.BLACK))
                 .build();
 
         TextDecor round1 = new TextDecor.Builder()
-                .decorate(TextDecor.setRoundBackground(5, 11, Color.YELLOW, Color.BLACK, RoundedBackgroundSpan.Gravity.BOTTOM))
+//                .decorate(TextDecor.setRoundBackground(5, 11, Color.YELLOW, Color.BLACK, RoundedBackgroundSpan.Gravity.BOTTOM))
                 .build();
 
         TextDecor round2 = new TextDecor.Builder()
-                .decorate(TextDecor.setRoundBackground(5, 11, Color.YELLOW, Color.BLACK, RoundedBackgroundSpan.Gravity.TOP))
+//                .decorate(TextDecor.setRoundBackground(5, 11, Color.YELLOW, Color.BLACK, RoundedBackgroundSpan.Gravity.TOP))
                 .build();
 
         prettyText.setText(

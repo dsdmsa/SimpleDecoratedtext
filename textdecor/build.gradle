@@ -1,6 +1,7 @@
 import java.text.SimpleDateFormat
 
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
 
 def final VERSION_NUMBER = "0.0.2"
 def final VERSION_NAME = "_V01"
@@ -33,6 +34,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
 }
 
 
@@ -40,6 +44,7 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 //    compile 'com.android.support:appcompat-v7:24.1.1'
 }
 
@@ -50,3 +55,6 @@ def buildTime() {
 
 // compile with ./gradlew clean build generateRelease
 apply from: 'https://raw.githubusercontent.com/blundell/release-android-library/master/android-release-aar.gradle'
+repositories {
+    mavenCentral()
+}
