@@ -11,7 +11,7 @@ import java.util.HashMap
  *
  * Also see https://code.google.com/p/android/issues/detail?id=9904
  */
-object FontUtil {
+internal object FontUtil {
 
     private val sTypefaceCache = HashMap<String, Typeface>()
 

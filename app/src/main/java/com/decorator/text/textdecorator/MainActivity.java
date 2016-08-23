@@ -3,14 +3,18 @@ package com.decorator.text.textdecorator;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.TextView;
 
 import com.decorator.text.textdecor.PrettyText;
+import com.decorator.text.textdecor.PretyTextKt;
+import com.decorator.text.textdecor.TextD;
 import com.decorator.text.textdecor.TextDecor;
 
 public class MainActivity extends AppCompatActivity {
 
     PrettyText prettyText;
     PrettyText prettyText2;
+    TextView simpleTxt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
 
         prettyText = (PrettyText) findViewById(R.id.textDecor);
         prettyText2 = (PrettyText) findViewById(R.id.textDecor2);
+        simpleTxt = (TextView) findViewById(R.id.simpleText);
+
 
         TextDecor rbackg = new TextDecor.Builder()
                 .decorate(TextDecor.Companion.UNDERLINE())
@@ -55,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
 //                .decorate(TextDecor.setRoundBackground(5, 11, Color.YELLOW, Color.BLACK, RoundedBackgroundSpan.Gravity.TOP))
                 .build();
 
+
+
         prettyText.setText(
                 round.withText(" round "),
                 siz.withText("\nYou pucharse\n"),
@@ -66,11 +74,16 @@ public class MainActivity extends AppCompatActivity {
                 col.withText(" col text \n")
         );
 
-        prettyText2.setText( " ",
+        prettyText2.setText(" ",
                 round.withText(" round "),
                 round1.withText(" round "),
                 round2.withText(" round ")
         );
+
+        TextD td = new TextD(TextD.Companion.BOLD(),TextD.Companion.STRINKE());
+
+
+        PretyTextKt.setPrittytext(simpleTxt, PretyTextKt.addDecor("asds",td) , td.withText( "asdasd"), rbackg.withText("asfasdf"));
 
     }
 }

@@ -7,6 +7,12 @@
     android:orientation="horizontal"
     tools:context="com.decorator.text.textdecorator.MainActivity">
 
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:id="@+id/simpleText"
+        android:layout_height="wrap_content" />
+
     <com.decorator.text.textdecor.PrettyText
         android:id="@+id/textDecor"
         android:layout_width="wrap_content"
