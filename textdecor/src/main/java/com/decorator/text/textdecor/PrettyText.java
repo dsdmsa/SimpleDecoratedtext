@@ -22,7 +22,7 @@ public class PrettyText extends TextView {
         super(context, attrs, defStyleAttr);
     }
 
-    public void setText(Object... strings)  {
+    public void setText(Object... strings) {
         TextDecor textDecor;
         SpannableString spannableString;
         StringBuilder stringBuilder = new StringBuilder();
@@ -47,7 +47,8 @@ public class PrettyText extends TextView {
         spannableString = new SpannableString(stringBuilder);
 
         for (DecorationData decorationData : decorationDates) {
-            decorationData.getTextDecor().decorateText(spannableString, decorationData.getCoordinates()[0], decorationData.getCoordinates()[1]);
+            if (decorationData.getTextDecor() != null)
+                decorationData.getTextDecor().decorateText(spannableString, decorationData.getCoordinates()[0], decorationData.getCoordinates()[1]);
         }
         setText(spannableString);
     }
