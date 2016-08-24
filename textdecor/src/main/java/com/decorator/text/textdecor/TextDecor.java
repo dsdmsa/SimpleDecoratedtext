@@ -32,10 +32,6 @@ public class TextDecor {
     private List<String> strings = new ArrayList<>();
     private List<Decoration> characterStyles = new ArrayList<>();
 
-//    private TextDecor(Builder builder) {
-//        this.characterStyles = builder.decorations;
-//    }
-
     public TextDecor(Decoration...decorations){
         characterStyles = Arrays.asList(decorations);
     }
@@ -61,38 +57,6 @@ public class TextDecor {
             spannableString.setSpan(characterStyle.newDecorInstance(), firstCharIndex, lastCharIndex, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
         }
     }
-
-//    /**
-//     * with this builder you start adding rules to you object
-//     */
-//    public static class Builder {
-//        private List<Decoration> decorations = new ArrayList<>();
-//
-//        /**
-//         * add the rules to you rule class
-//         * @param decoration
-//         * @return
-//         */
-//        public Builder decorate(Decoration decoration) {
-//            decorations.add(decoration);
-//            return this;
-//        }
-//
-//        /**
-//         * instantiate decor class eith rules
-//         * @return
-//         */
-//        public TextDecor build() {
-//            return new TextDecor(this);
-//        }
-//    }
-
-
-    /**
-     * decorations withowt parrams
-     * Static final decorations
-     */
-
 
     /**
      * adds underline to selected text
@@ -209,7 +173,6 @@ public class TextDecor {
         };
     }
 
-
     /**
      * need improvment, not working correctly
      * better work allone
@@ -236,10 +199,5 @@ public class TextDecor {
             }
         };
     }
-
-
-
-
-
 
 }

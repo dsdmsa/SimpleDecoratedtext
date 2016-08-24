@@ -21,7 +21,7 @@ public class FontUtil {
     public static Typeface get(Context context, String font) {
         synchronized (sTypefaceCache) {
             if (!sTypefaceCache.containsKey(font)) {
-                Typeface tf = Typeface.createFromAsset(context.getApplicationContext().getAssets(), font);
+                Typeface tf = Typeface.createFromAsset(context.getAssets(), font);
                 sTypefaceCache.put(font, tf);
             }
             return sTypefaceCache.get(font);
