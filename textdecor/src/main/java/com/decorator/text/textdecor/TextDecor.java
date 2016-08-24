@@ -21,6 +21,7 @@ import com.decorator.text.textdecor.utils.CustomTypefaceSpan;
 import com.decorator.text.textdecor.utils.FontUtil;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -31,8 +32,12 @@ public class TextDecor {
     private List<String> strings = new ArrayList<>();
     private List<Decoration> characterStyles = new ArrayList<>();
 
-    private TextDecor(Builder builder) {
-        this.characterStyles = builder.decorations;
+//    private TextDecor(Builder builder) {
+//        this.characterStyles = builder.decorations;
+//    }
+
+    public TextDecor(Decoration...decorations){
+        characterStyles = Arrays.asList(decorations);
     }
 
     String getText() {
@@ -57,30 +62,30 @@ public class TextDecor {
         }
     }
 
-    /**
-     * with this builder you start adding rules to you object
-     */
-    public static class Builder {
-        private List<Decoration> decorations = new ArrayList<>();
-
-        /**
-         * add the rules to you rule class
-         * @param decoration
-         * @return
-         */
-        public Builder decorate(Decoration decoration) {
-            decorations.add(decoration);
-            return this;
-        }
-
-        /**
-         * instantiate decor class eith rules
-         * @return
-         */
-        public TextDecor build() {
-            return new TextDecor(this);
-        }
-    }
+//    /**
+//     * with this builder you start adding rules to you object
+//     */
+//    public static class Builder {
+//        private List<Decoration> decorations = new ArrayList<>();
+//
+//        /**
+//         * add the rules to you rule class
+//         * @param decoration
+//         * @return
+//         */
+//        public Builder decorate(Decoration decoration) {
+//            decorations.add(decoration);
+//            return this;
+//        }
+//
+//        /**
+//         * instantiate decor class eith rules
+//         * @return
+//         */
+//        public TextDecor build() {
+//            return new TextDecor(this);
+//        }
+//    }
 
 
     /**
