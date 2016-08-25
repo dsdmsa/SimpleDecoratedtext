@@ -67,7 +67,7 @@
 
 - To setUp the librarry add in you build.gradle the folowing depencence
 ```groovy
-       compile 'com.dsdmsa.text:text_decor_V01:0.0.3'
+       compile 'com.dsdmsa.text:text_decor_V01:0.0.4'
 ```
 - Visit [Bintray](https://bintray.com/dsdmsa/AndroidText/com.dsdmsa.text) for details
 
