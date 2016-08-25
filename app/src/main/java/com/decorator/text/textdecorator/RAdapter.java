@@ -3,6 +3,8 @@ package com.decorator.text.textdecorator;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.LinearGradient;
+import android.graphics.Shader;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,13 +27,14 @@ public class RAdapter extends RecyclerView.Adapter<RAdapter.MyViewHolder> {
     TextDecor decor1 = new TextDecor.Builder()
             .decorate(TextDecor.setBackground(Color.BLUE))
             .decorate(TextDecor.UNDERLINE)
+            .decorate(TextDecor.addShadow(4,4,5,Color.BLACK))
             .decorate(TextDecor.setTextColor(Color.GREEN))
             .build();
 
     TextDecor decor2 = new TextDecor.Builder()
-            .decorate(TextDecor.setBackground(Color.BLACK))
-            .decorate(TextDecor.setTextColor(Color.RED))
-//            .decorate(TextDecor.font(context, "fonts/Roboto-Thin.ttf"))
+            .decorate(TextDecor.setRoundBackground(9,1,new LinearGradient(45,1,1,5,Color.CYAN,Color.BLUE, Shader.TileMode.CLAMP),Color.BLACK))
+            .decorate(TextDecor.absoluteTextSize(35))
+            .decorate(TextDecor.font(context, "fonts/Roboto-Thin.ttf"))
             .build();
 
     TextDecor line = new TextDecor.Builder()

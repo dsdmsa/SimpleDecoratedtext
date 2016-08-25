@@ -2,13 +2,17 @@ package com.decorator.text.textdecor;
 
 import android.content.Context;
 import android.graphics.BlurMaskFilter;
+import android.graphics.LinearGradient;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
+import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.AbsoluteSizeSpan;
 import android.text.style.BackgroundColorSpan;
 import android.text.style.CharacterStyle;
 import android.text.style.ForegroundColorSpan;
+import android.text.style.ImageSpan;
 import android.text.style.MaskFilterSpan;
 import android.text.style.StrikethroughSpan;
 import android.text.style.StyleSpan;
@@ -17,6 +21,7 @@ import android.text.style.SuperscriptSpan;
 import android.text.style.UnderlineSpan;
 
 import com.decorator.text.textdecor.custom_decors.RoundedBackgroundSpan;
+import com.decorator.text.textdecor.custom_decors.ShadowSpan;
 import com.decorator.text.textdecor.utils.CustomTypefaceSpan;
 import com.decorator.text.textdecor.utils.FontUtil;
 
@@ -232,9 +237,37 @@ public class TextDecor {
         };
     }
 
+    public static Decoration setRoundBackground(final int corner, final int padding, final LinearGradient backgroundColor, final int textColor) {
+        return new Decoration() {
+            @Override
+            public CharacterStyle newDecorInstance() {
+                return new RoundedBackgroundSpan(corner, padding, backgroundColor, textColor);
+            }
+        };
+    }
 
+    public static Decoration addShadow(final float dx, final float dy, final float radius, final int color) {
+        return new Decoration() {
+            @Override
+            public CharacterStyle newDecorInstance() {
+                return new ShadowSpan(dx,dy,radius,color);
+            }
+        };
+    }
 
-
-
+    public static Decoration addImageAtFinal(final Context context, final int id) {
+        return new Decoration() {
+            @Override
+            public CharacterStyle newDecorInstance() {
+                Drawable d = context.getResources().getDrawable(id);
+                if (d != null) {
+//                    d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
+                    d.setBounds(0, 0, 5, 5);
+                }
+                return new ImageSpan(d, ImageSpan.ALIGN_BASELINE);
+//                return new ImageSpan(context,id,0);
+            }
+        };
+    }
 
 }

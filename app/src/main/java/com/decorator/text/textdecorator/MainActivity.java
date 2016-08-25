@@ -1,6 +1,8 @@
 package com.decorator.text.textdecorator;
 
 import android.graphics.Color;
+import android.graphics.LinearGradient;
+import android.graphics.Shader;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,15 +12,15 @@ import com.decorator.text.textdecor.PrettyText;
 import com.decorator.text.textdecor.TextDecor;
 import com.decorator.text.textdecor.custom_decors.RoundedBackgroundSpan;
 
-public class MainActivity extends AppCompatActivity {
+import org.w3c.dom.Text;
 
-    PrettyText prettyText;
-    PrettyText prettyText2;
+public class MainActivity extends AppCompatActivity {
 
     public static TextDecor rbackg = new TextDecor.Builder()
             .decorate(TextDecor.relativeTextSize(30))
             .decorate(TextDecor.BOLD)
             .build();
+    PrettyText prettyText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,54 +28,45 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         prettyText = (PrettyText) findViewById(R.id.textDecor);
-        prettyText2 = (PrettyText) findViewById(R.id.textDecor2);
 
 
-
-        TextDecor siz = new TextDecor.Builder()
-                .decorate(TextDecor.setTextColor(Color.WHITE))
-                .decorate(TextDecor.absoluteTextSize(70))
-                .decorate(TextDecor.setBackground(Color.RED))
-                .decorate(TextDecor.UNDERLINE)
-                .decorate(TextDecor.font(getBaseContext(),"Roboto-Light.ttf"))
-                .decorate(TextDecor.STRINKE)
+        TextDecor bold = new TextDecor.Builder()
                 .decorate(TextDecor.BOLD)
                 .build();
-
-        TextDecor col = new TextDecor.Builder()
-                .decorate(TextDecor.setBackground(Color.BLUE))
-                .decorate(TextDecor.setTextColor(Color.WHITE))
+        TextDecor fontAndUndeline = new TextDecor.Builder()
+                .decorate(TextDecor.font(this,"fonts/Roboto-Thin.ttf"))
+                .decorate(TextDecor.UNDERLINE)
+                .build();
+        TextDecor roundRgadient = new TextDecor.Builder()
+                .decorate(TextDecor.setRoundBackground(9,2, new LinearGradient(0,0,545,545,Color.CYAN,Color.BLUE, Shader.TileMode.CLAMP),Color.BLACK))
+                .decorate(TextDecor.BOLD)
+                .build();
+        TextDecor redBack = new TextDecor.Builder()
+                .decorate(TextDecor.BOLD)
+                .decorate(TextDecor.setTextColor(Color.RED))
+                .decorate(TextDecor.setBackground(Color.BLACK))
+                .decorate(TextDecor.absoluteTextSize(50))
                 .build();
 
-        TextDecor round = new TextDecor.Builder()
-                .decorate(TextDecor.setRoundBackground(5, 11, Color.YELLOW, Color.BLACK))
-                .build();
-
-        TextDecor round1 = new TextDecor.Builder()
-                .decorate(TextDecor.setRoundBackground(5, 11, Color.YELLOW, Color.BLACK, RoundedBackgroundSpan.Gravity.BOTTOM))
-                .build();
-
-        TextDecor round2 = new TextDecor.Builder()
-                .decorate(TextDecor.setRoundBackground(5, 11, Color.YELLOW, Color.BLACK, RoundedBackgroundSpan.Gravity.TOP))
+        TextDecor shadowCol = new TextDecor.Builder()
+                .decorate(TextDecor.addShadow(2,2,5,Color.BLACK))
+                .decorate(TextDecor.absoluteTextSize(40))
                 .build();
 
         prettyText.setText(
-                round.withText(" round "),
-                siz.withText("\nYou pucharse\n"),
-                rbackg.withText("Yesterday\n"),
-                siz.withText("please show this QR......\n"),
-                " simple text ",
-                rbackg.withText("\n\nanother"),
-                siz.withText(" siz\n"),
-                col.withText(" col text \n")
+                roundRgadient.withText("Lorem Ipsum"),
+                fontAndUndeline.withText(" is simply dummy text"),
+                " of the printing and typesetting industry.",
+                roundRgadient.withText(" Lorem Ipsum "),
+                "has been the industry's standard dummy text ever since the ",
+                redBack.withText("1500s"),
+                shadowCol.withText(", when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the "),
+                redBack.withText("1960s"),
+                " with the release of ",
+                bold.withText("Letraset"),
+                " sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of ",
+                roundRgadient.withText("Lorem Ipsum")
         );
-
-
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-
-        recyclerView.setAdapter(new RAdapter(this));
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
     }
 }

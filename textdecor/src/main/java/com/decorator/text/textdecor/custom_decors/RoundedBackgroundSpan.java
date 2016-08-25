@@ -1,10 +1,10 @@
 package com.decorator.text.textdecor.custom_decors;
 
 import android.graphics.Canvas;
+import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.text.style.ReplacementSpan;
-import android.util.Log;
 
 public class RoundedBackgroundSpan extends ReplacementSpan {
 
@@ -15,6 +15,7 @@ public class RoundedBackgroundSpan extends ReplacementSpan {
     private int backgroundColor;
     private int textColor;
     private Gravity gravity = Gravity.DEFAULT;
+    private LinearGradient gradient = null;
 
     public RoundedBackgroundSpan(int cornerRadius, int paddingX, int backgroundColor, int textColor) {
         this.cornerRadius = cornerRadius;
@@ -23,7 +24,14 @@ public class RoundedBackgroundSpan extends ReplacementSpan {
         this.textColor = textColor;
     }
 
-    public RoundedBackgroundSpan(int cornerRadius, int paddingX,int backgroundColor, int textColor, Gravity gravity) {
+    public RoundedBackgroundSpan(int cornerRadius, int paddingX, LinearGradient gradient, int textColor) {
+        this.cornerRadius = cornerRadius;
+        this.paddingX = paddingX;
+        this.gradient = gradient;
+        this.textColor = textColor;
+    }
+
+    public RoundedBackgroundSpan(int cornerRadius, int paddingX, int backgroundColor, int textColor, Gravity gravity) {
         this.cornerRadius = cornerRadius;
         this.paddingX = paddingX;
         this.backgroundColor = backgroundColor;
@@ -41,17 +49,19 @@ public class RoundedBackgroundSpan extends ReplacementSpan {
 
         float width = paint.measureText(text.subSequence(start, end).toString());
 
-
-//        RectF rect = new RectF(x, top+top/4, x + width + 2 * paddingX, bottom);
-
         RectF rect = new RectF(
                 x + gravity.getX(),
                 top + top / gravity.getY(),
                 x + width + 2 * paddingX,
                 bottom + bottom / gravity.getY1()
         );
-        paint.setColor(backgroundColor);
+        if (gradient == null) {
+            paint.setColor(backgroundColor);
+        } else {
+            paint.setShader(gradient);
+        }
         canvas.drawRoundRect(rect, cornerRadius, cornerRadius, paint);
+        paint.setShader(null);
         paint.setColor(textColor);
         canvas.drawText(text,
                 start,
@@ -60,7 +70,6 @@ public class RoundedBackgroundSpan extends ReplacementSpan {
                 y + y / gravity.getY1(),
                 paint);
 
-//        canvas.drawText(text, start - 10, end, x + paddingX, y, paint);
     }
 
     public enum Gravity {
