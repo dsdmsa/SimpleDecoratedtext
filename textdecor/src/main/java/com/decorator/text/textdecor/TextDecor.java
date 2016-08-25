@@ -2,6 +2,7 @@ package com.decorator.text.textdecor;
 
 import android.content.Context;
 import android.graphics.BlurMaskFilter;
+import android.graphics.Color;
 import android.graphics.LinearGradient;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
@@ -20,8 +21,10 @@ import android.text.style.SubscriptSpan;
 import android.text.style.SuperscriptSpan;
 import android.text.style.UnderlineSpan;
 
+import com.decorator.text.textdecor.custom_decors.ArrowBackgroundSpan;
 import com.decorator.text.textdecor.custom_decors.RoundedBackgroundSpan;
 import com.decorator.text.textdecor.custom_decors.ShadowSpan;
+import com.decorator.text.textdecor.custom_decors.TypefaceResourceSpan;
 import com.decorator.text.textdecor.utils.CustomTypefaceSpan;
 import com.decorator.text.textdecor.utils.FontUtil;
 
@@ -261,11 +264,19 @@ public class TextDecor {
             public CharacterStyle newDecorInstance() {
                 Drawable d = context.getResources().getDrawable(id);
                 if (d != null) {
-//                    d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
                     d.setBounds(0, 0, 5, 5);
                 }
                 return new ImageSpan(d, ImageSpan.ALIGN_BASELINE);
-//                return new ImageSpan(context,id,0);
+            }
+        };
+    }
+    public static Decoration test(final Context context
+    ) {
+        return new Decoration() {
+            @Override
+            public CharacterStyle newDecorInstance() {
+//                return new ArrowBackgroundSpan(Color.RED,Color.BLACK);
+                return new TypefaceResourceSpan(context,"asd");
             }
         };
     }

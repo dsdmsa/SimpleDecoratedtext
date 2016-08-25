@@ -2,14 +2,10 @@ import java.text.SimpleDateFormat
 
 apply plugin: 'com.android.library'
 
-def final VERSION_NUMBER = "0.0.3"
+def final VERSION_NUMBER = "0.0.4"
 def final VERSION_NAME = "_V01"
 def final APP_NAME = "text_decor"
 def final VERSION_CODE = 1;
-
-def final PACKAGE_NAME = "com.decorator.text.textdecor"
-def final GITHUB_URL = "https://github.com/dsdmsa/SimpleDecoratedtext"
-def final BINTRY_API_KEY = "5c106565d5a2a34085c4b609984ea7cc491ba75c"
 
 ext {
     PUBLISH_GROUP_ID = "com.dsdmsa.text"

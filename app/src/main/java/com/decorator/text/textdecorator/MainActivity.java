@@ -53,6 +53,10 @@ public class MainActivity extends AppCompatActivity {
                 .decorate(TextDecor.absoluteTextSize(40))
                 .build();
 
+        TextDecor test = new TextDecor.Builder()
+                .decorate(TextDecor.test(this))
+                .build();
+
         prettyText.setText(
                 roundRgadient.withText("Lorem Ipsum"),
                 fontAndUndeline.withText(" is simply dummy text"),
@@ -65,7 +69,9 @@ public class MainActivity extends AppCompatActivity {
                 " with the release of ",
                 bold.withText("Letraset"),
                 " sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of ",
-                roundRgadient.withText("Lorem Ipsum")
+                roundRgadient.withText("Lorem Ipsum"),
+                "\n\n",
+                test.withText("asdsd")
         );
 
     }
