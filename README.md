@@ -25,7 +25,7 @@ Features
 
 Getting started with SimpleDecoratedtext is super easy! Simply add the dependency to you project and follow the instructions below.
 
-Getting Started with Slate
+Getting Started 
 ------------------------------
 
 ### Prerequisites
