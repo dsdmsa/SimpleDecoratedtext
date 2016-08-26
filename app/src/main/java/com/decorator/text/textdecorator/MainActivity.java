@@ -53,6 +53,18 @@ public class MainActivity extends AppCompatActivity {
                 .decorate(TextDecor.absoluteTextSize(40))
                 .build();
 
+        TextDecor alRight = new TextDecor.Builder()
+                .decorate(TextDecor.alignCenter())
+                .build();
+
+        TextDecor alLeft = new TextDecor.Builder()
+                .decorate(TextDecor.alignLeft())
+                .build();
+
+        TextDecor alCenter = new TextDecor.Builder()
+                .decorate(TextDecor.alignRight())
+                .build();
+
         TextDecor test = new TextDecor.Builder()
                 .decorate(TextDecor.test(this))
                 .build();
@@ -69,9 +81,18 @@ public class MainActivity extends AppCompatActivity {
                 " with the release of ",
                 bold.withText("Letraset"),
                 " sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of ",
-                roundRgadient.withText("Lorem Ipsum"),
+                roundRgadient.withText("Lorem Ipsum\n"),
+
+                alRight.withText("right\n"),
+                alRight.withText("right\n"),
+                alLeft.withText("left\n"),
+                alCenter.withText("center\n"),
+
                 "\n\n",
-                test.withText("asdsd")
+
+//                test.withText("asdsd"),
+
+                "\n"
         );
 
     }

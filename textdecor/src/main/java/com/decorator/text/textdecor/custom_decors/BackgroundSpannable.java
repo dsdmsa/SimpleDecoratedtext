@@ -8,12 +8,12 @@ import android.text.TextPaint;
 import android.text.style.CharacterStyle;
 import android.widget.TextView;
 
-import com.decorator.text.textdecor.Decoration;
+import com.decorator.text.textdecor.spans.Decoration;
 
 /**
  * Created by caifangmao on 15/2/13.
  */
-public abstract class BackgroundSpannable implements Decoration {
+public abstract class BackgroundSpannable {
 
     private int lineStart;
     private int lineEnd;
@@ -26,22 +26,6 @@ public abstract class BackgroundSpannable implements Decoration {
 
     private int start;
     private int end;
-
-    @Override
-    public CharacterStyle newDecorInstance() {
-
-        return new CharacterStyle() {
-            @Override
-            public void updateDrawState(TextPaint textPaint) {
-
-
-
-
-            }
-        };
-    }
-
-
 
     /**当前行的
      *  LinePositionStart Span从本行开始

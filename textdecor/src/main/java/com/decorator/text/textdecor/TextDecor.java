@@ -2,14 +2,20 @@ package com.decorator.text.textdecor;
 
 import android.content.Context;
 import android.graphics.BlurMaskFilter;
+import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.LinearGradient;
+import android.graphics.Paint;
+import android.graphics.Path;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
-import android.text.Spannable;
+import android.graphics.drawable.shapes.PathShape;
+import android.graphics.drawable.shapes.Shape;
+import android.text.Layout;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.AbsoluteSizeSpan;
+import android.text.style.AlignmentSpan;
 import android.text.style.BackgroundColorSpan;
 import android.text.style.CharacterStyle;
 import android.text.style.ForegroundColorSpan;
@@ -22,9 +28,12 @@ import android.text.style.SuperscriptSpan;
 import android.text.style.UnderlineSpan;
 
 import com.decorator.text.textdecor.custom_decors.ArrowBackgroundSpan;
+import com.decorator.text.textdecor.custom_decors.BackgroundSpannable;
 import com.decorator.text.textdecor.custom_decors.RoundedBackgroundSpan;
 import com.decorator.text.textdecor.custom_decors.ShadowSpan;
+import com.decorator.text.textdecor.custom_decors.ShapeBackgroundSpan;
 import com.decorator.text.textdecor.custom_decors.TypefaceResourceSpan;
+import com.decorator.text.textdecor.spans.Decoration;
 import com.decorator.text.textdecor.utils.CustomTypefaceSpan;
 import com.decorator.text.textdecor.utils.FontUtil;
 
@@ -270,13 +279,39 @@ public class TextDecor {
             }
         };
     }
-    public static Decoration test(final Context context
-    ) {
+    public static Decoration alignRight( ) {
         return new Decoration() {
             @Override
-            public CharacterStyle newDecorInstance() {
-//                return new ArrowBackgroundSpan(Color.RED,Color.BLACK);
-                return new TypefaceResourceSpan(context,"asd");
+            public AlignmentSpan newDecorInstance() {
+                return new AlignmentSpan.Standard(Layout.Alignment.ALIGN_CENTER);
+            }
+        };
+    }
+
+    public static Decoration alignLeft( ) {
+        return new Decoration() {
+            @Override
+            public AlignmentSpan newDecorInstance() {
+                return new AlignmentSpan.Standard(Layout.Alignment.ALIGN_NORMAL);
+            }
+        };
+    }
+
+    public static Decoration alignCenter( ) {
+        return new Decoration() {
+            @Override
+            public AlignmentSpan newDecorInstance() {
+                return new AlignmentSpan.Standard(Layout.Alignment.ALIGN_OPPOSITE);
+            }
+        };
+    }
+
+
+    public static Decoration test(final Context context ) {
+        return new Decoration() {
+            @Override
+            public AlignmentSpan newDecorInstance() {
+                return new AlignmentSpan.Standard(Layout.Alignment.ALIGN_OPPOSITE);
             }
         };
     }

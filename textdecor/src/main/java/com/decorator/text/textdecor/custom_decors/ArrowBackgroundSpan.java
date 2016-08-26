@@ -38,29 +38,29 @@ public class ArrowBackgroundSpan extends BackgroundSpannable {
 //
             int halfHeight = height / 2;
 //
-//            float startP = (float) (-Math.PI / 2);
-//            float perP = (float) ((Math.PI * 2) / 10);
-//
-//            PointF correctPoint = centerRadiusPoint(-halfHeight, halfHeight, startP, halfHeight);
-//            startArrow.moveTo(correctPoint.x, correctPoint.y);
-//            correctPoint = centerRadiusPoint(width + halfHeight, halfHeight, startP, halfHeight);
-//            endArrow.moveTo(correctPoint.x, correctPoint.y);
-//            for(int i = 1; i < 10; i++){
-//                if(i % 2 == 0){
-//                    correctPoint = centerRadiusPoint(-halfHeight, halfHeight, startP + (i * perP), halfHeight);
-//                    startArrow.lineTo(correctPoint.x, correctPoint.y);
-//                    correctPoint = centerRadiusPoint(width + halfHeight, halfHeight, startP + (i * perP), halfHeight);
-//                    endArrow.lineTo(correctPoint.x, correctPoint.y);
-//                }else{
-//                    correctPoint = centerRadiusPoint(-halfHeight, halfHeight, startP + (i * perP), halfHeight / 1.8F);
-//                    startArrow.lineTo(correctPoint.x, correctPoint.y);
-//                    correctPoint = centerRadiusPoint(width + halfHeight, halfHeight, startP + (i * perP), halfHeight / 1.8F);
-//                    endArrow.lineTo(correctPoint.x, correctPoint.y);
-//                }
-//            }
-//
-//            startArrow.close();
-//            endArrow.close();
+            float startP = (float) (-Math.PI / 2);
+            float perP = (float) ((Math.PI * 2) / 10);
+
+            PointF correctPoint = centerRadiusPoint(-halfHeight, halfHeight, startP, halfHeight);
+            startArrow.moveTo(correctPoint.x, correctPoint.y);
+            correctPoint = centerRadiusPoint(width + halfHeight, halfHeight, startP, halfHeight);
+            endArrow.moveTo(correctPoint.x, correctPoint.y);
+            for(int i = 1; i < 10; i++){
+                if(i % 2 == 0){
+                    correctPoint = centerRadiusPoint(-halfHeight, halfHeight, startP + (i * perP), halfHeight);
+                    startArrow.lineTo(correctPoint.x, correctPoint.y);
+                    correctPoint = centerRadiusPoint(width + halfHeight, halfHeight, startP + (i * perP), halfHeight);
+                    endArrow.lineTo(correctPoint.x, correctPoint.y);
+                }else{
+                    correctPoint = centerRadiusPoint(-halfHeight, halfHeight, startP + (i * perP), halfHeight / 1.8F);
+                    startArrow.lineTo(correctPoint.x, correctPoint.y);
+                    correctPoint = centerRadiusPoint(width + halfHeight, halfHeight, startP + (i * perP), halfHeight / 1.8F);
+                    endArrow.lineTo(correctPoint.x, correctPoint.y);
+                }
+            }
+
+            startArrow.close();
+            endArrow.close();
 
             startArrow.moveTo(0, 0);
             startArrow.lineTo(halfHeight, 0);
