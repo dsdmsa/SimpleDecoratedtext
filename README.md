@@ -132,6 +132,31 @@ Custom decorations :
     };
 ```
 
+TextDecor Decoration list :
+------------------------------
+1. UNDERLINE
+2. STRINKE
+3. TRANSPARENT_BACKGROUND
+4. SUBSCRIPT
+5. SUPERSCRIPT
+6. BOLD
+7. ITALIC
+8. ITALIC_BOLD
+9. setBlur(final int radius, final BlurMaskFilter.Blur style)
+10. absoluteTextSize(final int size)
+11. relativeTextSize(final int size)
+12. font(final Context context, final String font)
+13. setTextColor(final int color) 
+14. setBackground(final int color)
+15. setRoundBackground(final int corner, final int padding, final int backgroundColor, final int textColor)
+16. addShadow(final float dx, final float dy, final float radius, final int color)
+17. alignRight( )
+18. alignLeft( ) 
+19. alignCenter( )
+20. replaceTextWithImage(final Context context ,final int id,final int size)
+21. clickableText(final Click click)
+
+
 Need Help? Found a bug?
 --------------------
 
