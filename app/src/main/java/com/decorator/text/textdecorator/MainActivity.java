@@ -2,6 +2,7 @@ package com.decorator.text.textdecorator;
 
 import android.graphics.Color;
 import android.graphics.LinearGradient;
+import android.graphics.Paint;
 import android.graphics.Shader;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,11 +13,15 @@ import com.decorator.text.textdecor.PrettyText;
 import com.decorator.text.textdecor.TextDecor;
 import com.decorator.text.textdecor.custom_decors.Click;
 
+import org.w3c.dom.Text;
+
+import static com.decorator.text.textdecor.TextDecor.*;
+
 public class MainActivity extends AppCompatActivity {
 
-    public static TextDecor rbackg = new TextDecor.Builder()
-            .decorate(TextDecor.relativeTextSize(30))
-            .decorate(TextDecor.BOLD)
+    public static TextDecor rbackg = new Builder()
+            .decorate(relativeTextSize(30))
+            .decorate(BOLD)
             .build();
     PrettyText prettyText;
 
@@ -28,48 +33,48 @@ public class MainActivity extends AppCompatActivity {
         prettyText = (PrettyText) findViewById(R.id.textDecor);
 
 
-        TextDecor bold = new TextDecor.Builder()
-                .decorate(TextDecor.BOLD)
+        TextDecor bold = new Builder()
+                .decorate(BOLD)
                 .build();
-        TextDecor fontAndUndeline = new TextDecor.Builder()
-                .decorate(TextDecor.font(this, "fonts/Roboto-Thin.ttf"))
-                .decorate(TextDecor.UNDERLINE)
+        TextDecor fontAndUndeline = new Builder()
+                .decorate(font(this, "fonts/Roboto-Thin.ttf"))
+                .decorate(UNDERLINE)
                 .build();
-        TextDecor roundRgadient = new TextDecor.Builder()
-                .decorate(TextDecor.setRoundBackground(9, 2, new LinearGradient(0, 0, 545, 545, Color.CYAN, Color.BLUE, Shader.TileMode.CLAMP), Color.BLACK))
-                .decorate(TextDecor.BOLD)
+        TextDecor roundRgadient = new Builder()
+                .decorate(setRoundBackground(9, 2, new LinearGradient(0, 0, 545, 545, Color.CYAN, Color.BLUE, Shader.TileMode.CLAMP), Color.BLACK))
+                .decorate(BOLD)
                 .build();
-        TextDecor redBack = new TextDecor.Builder()
-                .decorate(TextDecor.BOLD)
-                .decorate(TextDecor.setTextColor(Color.RED))
-                .decorate(TextDecor.setBackground(Color.BLACK))
-                .decorate(TextDecor.absoluteTextSize(50))
-                .build();
-
-        TextDecor shadowCol = new TextDecor.Builder()
-                .decorate(TextDecor.addShadow(2, 2, 5, Color.BLACK))
-                .decorate(TextDecor.absoluteTextSize(40))
+        TextDecor redBack = new Builder()
+                .decorate(BOLD)
+                .decorate(setTextColor(Color.RED))
+                .decorate(setBackground(Color.BLACK))
+                .decorate(absoluteTextSize(50))
                 .build();
 
-        TextDecor alRight = new TextDecor.Builder()
-                .decorate(TextDecor.alignCenter())
+        TextDecor shadowCol = new Builder()
+                .decorate(addShadow(2, 2, 5, Color.BLACK))
+                .decorate(absoluteTextSize(40))
                 .build();
 
-        TextDecor alLeft = new TextDecor.Builder()
-                .decorate(TextDecor.alignLeft())
+        TextDecor alRight = new Builder()
+                .decorate(alignCenter())
                 .build();
 
-        TextDecor alCenter = new TextDecor.Builder()
-                .decorate(TextDecor.alignRight())
+        TextDecor alLeft = new Builder()
+                .decorate(alignLeft())
                 .build();
 
-        TextDecor image = new TextDecor.Builder()
-                .decorate(TextDecor.replaceTextWithImage(this, R.drawable.tst, 300))
-                .decorate(TextDecor.alignCenter())
+        TextDecor alCenter = new Builder()
+                .decorate(alignRight())
                 .build();
 
-        TextDecor clikable = new TextDecor.Builder()
-                .decorate(TextDecor.test(new Click(Color.BLACK, Color.CYAN) {
+        TextDecor image = new Builder()
+                .decorate(replaceTextWithImage(this, R.drawable.tst, 300))
+                .decorate(alignRight())
+                .build();
+
+        TextDecor clikable = new Builder()
+                .decorate(clickableText(new Click(Color.BLACK, Color.CYAN) {
                     @Override
                     public void onClick(View view) {
                         Toast.makeText(view.getContext(),"toast",Toast.LENGTH_LONG).show();
@@ -78,14 +83,9 @@ public class MainActivity extends AppCompatActivity {
                 .build();
 
 
-        TextDecor test = new TextDecor.Builder()
-                .decorate(TextDecor.alignLeft())
-                .decorate(TextDecor.test(new Click() {
-                    @Override
-                    public void onClick(View view) {
-                        Toast.makeText(view.getContext(),"toast",Toast.LENGTH_LONG).show();
-                    }
-                }))
+        TextDecor test = new Builder()
+                .decorate(alignLeft())
+                .decorate(test(getBaseContext(),R.drawable.im,200, 1))
                 .build();
 
 //        prettyText.setMovementMethod(LinkMovementMethod.getInstance());

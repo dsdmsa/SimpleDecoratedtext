@@ -33,6 +33,7 @@ import android.view.View;
 
 import com.decorator.text.textdecor.custom_decors.ArrowBackgroundSpan;
 import com.decorator.text.textdecor.custom_decors.BackgroundSpannable;
+import com.decorator.text.textdecor.custom_decors.CenteredImageSpan;
 import com.decorator.text.textdecor.custom_decors.Click;
 import com.decorator.text.textdecor.custom_decors.RoundedBackgroundSpan;
 import com.decorator.text.textdecor.custom_decors.ShadowSpan;
@@ -128,6 +129,13 @@ public class TextDecor {
         @Override
         public CharacterStyle newDecorInstance() {
             return new StrikethroughSpan();
+        }
+    };
+
+    public static Decoration TRANSPARENT_BACKGROUND = new Decoration(){
+        @Override
+        public CharacterStyle newDecorInstance() {
+            return new BackgroundColorSpan(Color.TRANSPARENT);
         }
     };
 
@@ -322,11 +330,17 @@ public class TextDecor {
         };
     }
 
-    public static Decoration test(final Click click) {
+
+
+    public static Decoration test(final Context context ,final int id,final int size,final int alignament) {
         return new Decoration() {
             @Override
-            public Click newDecorInstance() {
-                return click;
+            public CenteredImageSpan newDecorInstance() {
+                Drawable d = context.getResources().getDrawable(id);
+                if (d != null) {
+                    d.setBounds(0, 0, size, size);
+                }
+                return new CenteredImageSpan(d,alignament);
             }
         };
     }
