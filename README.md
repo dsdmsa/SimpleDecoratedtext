@@ -39,14 +39,14 @@ You're going to need:
 
 1. Add the dependency to you project or visit [Bintray](https://bintray.com/dsdmsa/AndroidText/com.dsdmsa.text) for details
 ```groovy
-       compile 'com.dsdmsa.text:text_decor_V01:0.0.3'
+       compile 'com.dsdmsa.text:text_decor_V01:0.0.5'
 ```
 or
 ```xml
     <dependency>
         <groupId>com.dsdmsa.text</groupId>
         <artifactId>text_decor_V01</artifactId>
-        <version>0.0.4</version>
+        <version>0.0.5</version>
         <type>pom</type>
     </dependency>
 ```
