@@ -2,6 +2,7 @@ package com.decorator.text.textdecor;
 
 import android.content.Context;
 import android.text.SpannableString;
+import android.text.method.LinkMovementMethod;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
@@ -23,6 +24,7 @@ public class PrettyText extends TextView {
     }
 
     public void setText(Object... strings) {
+        this.setMovementMethod(LinkMovementMethod.getInstance());
         TextDecor textDecor;
         SpannableString spannableString;
         StringBuilder stringBuilder = new StringBuilder();

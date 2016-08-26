@@ -5,14 +5,12 @@ import android.graphics.LinearGradient;
 import android.graphics.Shader;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.Toast;
 
 import com.decorator.text.textdecor.PrettyText;
 import com.decorator.text.textdecor.TextDecor;
-import com.decorator.text.textdecor.custom_decors.RoundedBackgroundSpan;
-
-import org.w3c.dom.Text;
+import com.decorator.text.textdecor.custom_decors.Click;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,11 +32,11 @@ public class MainActivity extends AppCompatActivity {
                 .decorate(TextDecor.BOLD)
                 .build();
         TextDecor fontAndUndeline = new TextDecor.Builder()
-                .decorate(TextDecor.font(this,"fonts/Roboto-Thin.ttf"))
+                .decorate(TextDecor.font(this, "fonts/Roboto-Thin.ttf"))
                 .decorate(TextDecor.UNDERLINE)
                 .build();
         TextDecor roundRgadient = new TextDecor.Builder()
-                .decorate(TextDecor.setRoundBackground(9,2, new LinearGradient(0,0,545,545,Color.CYAN,Color.BLUE, Shader.TileMode.CLAMP),Color.BLACK))
+                .decorate(TextDecor.setRoundBackground(9, 2, new LinearGradient(0, 0, 545, 545, Color.CYAN, Color.BLUE, Shader.TileMode.CLAMP), Color.BLACK))
                 .decorate(TextDecor.BOLD)
                 .build();
         TextDecor redBack = new TextDecor.Builder()
@@ -49,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                 .build();
 
         TextDecor shadowCol = new TextDecor.Builder()
-                .decorate(TextDecor.addShadow(2,2,5,Color.BLACK))
+                .decorate(TextDecor.addShadow(2, 2, 5, Color.BLACK))
                 .decorate(TextDecor.absoluteTextSize(40))
                 .build();
 
@@ -65,10 +63,32 @@ public class MainActivity extends AppCompatActivity {
                 .decorate(TextDecor.alignRight())
                 .build();
 
-        TextDecor test = new TextDecor.Builder()
-                .decorate(TextDecor.test(this))
+        TextDecor image = new TextDecor.Builder()
+                .decorate(TextDecor.replaceTextWithImage(this, R.drawable.tst, 300))
+                .decorate(TextDecor.alignCenter())
                 .build();
 
+        TextDecor clikable = new TextDecor.Builder()
+                .decorate(TextDecor.test(new Click(Color.BLACK, Color.CYAN) {
+                    @Override
+                    public void onClick(View view) {
+                        Toast.makeText(view.getContext(),"toast",Toast.LENGTH_LONG).show();
+                    }
+                }))
+                .build();
+
+
+        TextDecor test = new TextDecor.Builder()
+                .decorate(TextDecor.alignLeft())
+                .decorate(TextDecor.test(new Click() {
+                    @Override
+                    public void onClick(View view) {
+                        Toast.makeText(view.getContext(),"toast",Toast.LENGTH_LONG).show();
+                    }
+                }))
+                .build();
+
+//        prettyText.setMovementMethod(LinkMovementMethod.getInstance());
         prettyText.setText(
                 roundRgadient.withText("Lorem Ipsum"),
                 fontAndUndeline.withText(" is simply dummy text"),
@@ -87,10 +107,15 @@ public class MainActivity extends AppCompatActivity {
                 alRight.withText("right\n"),
                 alLeft.withText("left\n"),
                 alCenter.withText("center\n"),
+                image.withText("     "),
+
+                "  \n",
+
+                clikable.withText("\n\n\n  asddsfdgdfdgsdfgsdfgsd fg sdfg sdfg sdf gsd fg sd"),
 
                 "\n\n",
 
-//                test.withText("asdsd"),
+                test.withText("asddsfdgdfdgsdfgsdfgsd fg sdfg sdfg sdf gsd fg sd"),
 
                 "\n"
         );

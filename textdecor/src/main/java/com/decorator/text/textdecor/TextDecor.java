@@ -18,17 +18,22 @@ import android.text.style.AbsoluteSizeSpan;
 import android.text.style.AlignmentSpan;
 import android.text.style.BackgroundColorSpan;
 import android.text.style.CharacterStyle;
+import android.text.style.ClickableSpan;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
 import android.text.style.MaskFilterSpan;
+import android.text.style.MetricAffectingSpan;
+import android.text.style.ReplacementSpan;
 import android.text.style.StrikethroughSpan;
 import android.text.style.StyleSpan;
 import android.text.style.SubscriptSpan;
 import android.text.style.SuperscriptSpan;
 import android.text.style.UnderlineSpan;
+import android.view.View;
 
 import com.decorator.text.textdecor.custom_decors.ArrowBackgroundSpan;
 import com.decorator.text.textdecor.custom_decors.BackgroundSpannable;
+import com.decorator.text.textdecor.custom_decors.Click;
 import com.decorator.text.textdecor.custom_decors.RoundedBackgroundSpan;
 import com.decorator.text.textdecor.custom_decors.ShadowSpan;
 import com.decorator.text.textdecor.custom_decors.ShapeBackgroundSpan;
@@ -234,7 +239,7 @@ public class TextDecor {
     public static Decoration setRoundBackground(final int corner, final int padding, final int backgroundColor, final int textColor, final RoundedBackgroundSpan.Gravity gravity) {
         return new Decoration() {
             @Override
-            public CharacterStyle newDecorInstance() {
+            public ReplacementSpan newDecorInstance() {
                 return new RoundedBackgroundSpan(corner, padding, backgroundColor, textColor, gravity);
             }
         };
@@ -243,7 +248,7 @@ public class TextDecor {
     public static Decoration setRoundBackground(final int corner, final int padding, final int backgroundColor, final int textColor) {
         return new Decoration() {
             @Override
-            public CharacterStyle newDecorInstance() {
+            public ReplacementSpan newDecorInstance() {
                 return new RoundedBackgroundSpan(corner, padding, backgroundColor, textColor);
             }
         };
@@ -252,7 +257,7 @@ public class TextDecor {
     public static Decoration setRoundBackground(final int corner, final int padding, final LinearGradient backgroundColor, final int textColor) {
         return new Decoration() {
             @Override
-            public CharacterStyle newDecorInstance() {
+            public ReplacementSpan newDecorInstance() {
                 return new RoundedBackgroundSpan(corner, padding, backgroundColor, textColor);
             }
         };
@@ -267,23 +272,12 @@ public class TextDecor {
         };
     }
 
-    public static Decoration addImageAtFinal(final Context context, final int id) {
-        return new Decoration() {
-            @Override
-            public CharacterStyle newDecorInstance() {
-                Drawable d = context.getResources().getDrawable(id);
-                if (d != null) {
-                    d.setBounds(0, 0, 5, 5);
-                }
-                return new ImageSpan(d, ImageSpan.ALIGN_BASELINE);
-            }
-        };
-    }
+
     public static Decoration alignRight( ) {
         return new Decoration() {
             @Override
             public AlignmentSpan newDecorInstance() {
-                return new AlignmentSpan.Standard(Layout.Alignment.ALIGN_CENTER);
+                return new AlignmentSpan.Standard(Layout.Alignment.ALIGN_OPPOSITE);
             }
         };
     }
@@ -301,17 +295,38 @@ public class TextDecor {
         return new Decoration() {
             @Override
             public AlignmentSpan newDecorInstance() {
-                return new AlignmentSpan.Standard(Layout.Alignment.ALIGN_OPPOSITE);
+                return new AlignmentSpan.Standard(Layout.Alignment.ALIGN_CENTER);
             }
         };
     }
 
-
-    public static Decoration test(final Context context ) {
+    public static Decoration replaceTextWithImage(final Context context ,final int id,final int size) {
         return new Decoration() {
             @Override
-            public AlignmentSpan newDecorInstance() {
-                return new AlignmentSpan.Standard(Layout.Alignment.ALIGN_OPPOSITE);
+            public ImageSpan newDecorInstance() {
+                Drawable d = context.getResources().getDrawable(id);
+                if (d != null) {
+                    d.setBounds(0, 0, size, size);
+                }
+                return new ImageSpan(d, ImageSpan.ALIGN_BASELINE);
+            }
+        };
+    }
+
+    public static Decoration clickableText(final Click click) {
+        return new Decoration() {
+            @Override
+            public Click newDecorInstance() {
+                return click;
+            }
+        };
+    }
+
+    public static Decoration test(final Click click) {
+        return new Decoration() {
+            @Override
+            public Click newDecorInstance() {
+                return click;
             }
         };
     }
