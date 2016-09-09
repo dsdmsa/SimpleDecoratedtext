@@ -85,10 +85,9 @@ public class MainActivity extends AppCompatActivity {
 
         TextDecor test = new Builder()
                 .decorate(alignLeft())
-                .decorate(test(getBaseContext(),R.drawable.im,200, 1))
+                .decorate(test(getBaseContext(),R.drawable.im,200, 1 ))
                 .build();
 
-//        prettyText.setMovementMethod(LinkMovementMethod.getInstance());
         prettyText.setText(
                 roundRgadient.withText("Lorem Ipsum"),
                 fontAndUndeline.withText(" is simply dummy text"),

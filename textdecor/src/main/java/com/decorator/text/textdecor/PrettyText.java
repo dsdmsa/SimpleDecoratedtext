@@ -23,6 +23,9 @@ public class PrettyText extends TextView {
         super(context, attrs, defStyleAttr);
     }
 
+
+    // TODO: 9/9/16 add add text dinamicly
+
     public void setText(Object... strings) {
         this.setMovementMethod(LinkMovementMethod.getInstance());
         TextDecor textDecor;
