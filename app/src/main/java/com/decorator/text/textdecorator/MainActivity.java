@@ -36,14 +36,17 @@ public class MainActivity extends AppCompatActivity {
         TextDecor bold = new Builder()
                 .decorate(BOLD)
                 .build();
+
         TextDecor fontAndUndeline = new Builder()
                 .decorate(font(this, "fonts/Roboto-Thin.ttf"))
                 .decorate(UNDERLINE)
                 .build();
+
         TextDecor roundRgadient = new Builder()
                 .decorate(setRoundBackground(9, 2, new LinearGradient(0, 0, 545, 545, Color.CYAN, Color.BLUE, Shader.TileMode.CLAMP), Color.BLACK))
                 .decorate(BOLD)
                 .build();
+
         TextDecor redBack = new Builder()
                 .decorate(BOLD)
                 .decorate(setTextColor(Color.RED))
@@ -88,8 +91,19 @@ public class MainActivity extends AppCompatActivity {
                 .decorate(test(getBaseContext(),R.drawable.im,200, 1 ))
                 .build();
 
+
+        TextDecor roundCorrner = new Builder()
+                .decorate(setRoundBackground(15,1,Color.YELLOW,Color.BLACK))
+                .build();
+
+        TextDecor roundCorrner2 = new Builder()
+                .decorate(setRoundBackground(0,1,Color.YELLOW,Color.BLACK))
+                .build();
+
         prettyText.setText(
-                roundRgadient.withText("Lorem Ipsum"),
+                roundCorrner.withText("Lorem")," ",
+                roundCorrner2.withText("Ipsum")," ",
+                roundCorrner2.withText(" ")," ",
                 fontAndUndeline.withText(" is simply dummy text"),
                 " of the printing and typesetting industry.",
                 roundRgadient.withText(" Lorem Ipsum "),
@@ -102,10 +116,10 @@ public class MainActivity extends AppCompatActivity {
                 " sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of ",
                 roundRgadient.withText("Lorem Ipsum\n"),
 
-                alRight.withText("right\n"),
-                alRight.withText("right\n"),
+                alRight.withText("right\n/n\n"),
+                alRight.withText("right"),
                 alLeft.withText("left\n"),
-                alCenter.withText("center\n"),
+                alCenter.withText("center\n/n\n"),
                 image.withText("     "),
 
                 "  \n",
