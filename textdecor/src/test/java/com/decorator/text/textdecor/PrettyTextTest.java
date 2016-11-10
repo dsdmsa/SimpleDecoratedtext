@@ -20,11 +20,4 @@ public class PrettyTextTest {
         assertEquals(true,prettyText != null);
     }
 
-    @Test
-    public void setText() throws Exception {
-        prettyText.setText(TEXT,TEXT);
-        assertEquals(TEXT+TEXT,prettyText.getText());
-
-    }
-
 }
