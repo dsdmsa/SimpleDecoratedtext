@@ -61,6 +61,12 @@ public class TextDecor {
         return this;
     }
 
+    /**
+     *
+     * @param spannableString
+     * @param firstCharIndex
+     * @param lastCharIndex
+     */
    protected void decorateText(SpannableString spannableString, int firstCharIndex, int lastCharIndex) {
         for (Decoration characterStyle : characterStyles) {
             spannableString.setSpan(characterStyle.newDecorInstance(), firstCharIndex, lastCharIndex, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);

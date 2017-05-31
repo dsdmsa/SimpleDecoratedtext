@@ -14,7 +14,6 @@ public class PrettyText extends TextView {
     private StringBuilder stringBuilder = new StringBuilder();
     private List<DecorationData> decorationDates = new ArrayList<>();
 
-
     public PrettyText(Context context) {
         super(context);
     }
@@ -29,6 +28,10 @@ public class PrettyText extends TextView {
 
     // TODO: 9/9/16 add add text dinamicly
 
+    /**
+     *
+     * @param strings
+     */
     public void setText(Object... strings) {
         this.setMovementMethod(LinkMovementMethod.getInstance());
 
@@ -45,6 +48,10 @@ public class PrettyText extends TextView {
         setText(spannableString);
     }
 
+    /**
+     *
+     * @param strings
+     */
     private void decorateStrings(Object[] strings) {
         int index = 0;
         for (Object string : strings) {
