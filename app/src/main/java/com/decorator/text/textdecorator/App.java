@@ -17,38 +17,6 @@ import com.decorator.text.textdecor.custom_decors.Click;
 
 public class App extends Application{
 
-    // context needed
-    public static TextDecor IMAGE;
-    public static TextDecor FONTANDUNDELINE;
-    public static TextDecor TEST;
-    public static  TextDecor decor2;
-
-    @Override
-    public void onCreate() {
-        super.onCreate();
-
-        decor2 = new TextDecor.Builder()
-                .decorate(TextDecor.setRoundBackground(9,1,new LinearGradient(45,1,1,5,Color.CYAN,Color.BLUE, Shader.TileMode.CLAMP),Color.BLACK))
-                .decorate(TextDecor.absoluteTextSize(35))
-                .decorate(TextDecor.font(getBaseContext(), "fonts/Roboto-Thin.ttf"))
-                .build();
-        IMAGE = new TextDecor.Builder()
-                .decorate(TextDecor.replaceTextWithImage(getBaseContext(), R.drawable.tst, 300))
-                .decorate(TextDecor.alignRight())
-                .build();
-
-        FONTANDUNDELINE = new TextDecor.Builder()
-                .decorate(TextDecor.font(getBaseContext(), "fonts/Roboto-Thin.ttf"))
-                .decorate(TextDecor.UNDERLINE)
-                .build();
-
-        TEST = new TextDecor.Builder()
-                .decorate(TextDecor.alignLeft())
-                .decorate(TextDecor.test(getBaseContext(), R.drawable.im, 200, 1))
-                .build();
-
-    }
-
     public static  TextDecor line = new TextDecor.Builder()
             .decorate(TextDecor.setBackground(Color.WHITE))
             .decorate(TextDecor.setTextColor(Color.BLACK))
@@ -113,9 +81,6 @@ public class App extends Application{
             }))
             .build();
 
-
-
-
     public static TextDecor roundCorrner = new TextDecor.Builder()
             .decorate(TextDecor.setRoundBackground(15, 1, Color.YELLOW, Color.BLACK))
             .build();
@@ -123,5 +88,37 @@ public class App extends Application{
     public static TextDecor roundCorrner2 = new TextDecor.Builder()
             .decorate(TextDecor.setRoundBackground(0, 1, Color.YELLOW, Color.BLACK))
             .build();
+
+    // context needed
+    public static TextDecor IMAGE;
+    public static TextDecor FONTANDUNDELINE;
+    public static TextDecor TEST;
+    public static  TextDecor decor2;
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+
+        decor2 = new TextDecor.Builder()
+                .decorate(TextDecor.setRoundBackground(9,1,new LinearGradient(45,1,1,5,Color.CYAN,Color.BLUE, Shader.TileMode.CLAMP),Color.BLACK))
+                .decorate(TextDecor.absoluteTextSize(35))
+                .decorate(TextDecor.font(getBaseContext(), "fonts/Roboto-Thin.ttf"))
+                .build();
+        IMAGE = new TextDecor.Builder()
+                .decorate(TextDecor.replaceTextWithImage(getBaseContext(), R.drawable.tst, 300))
+                .decorate(TextDecor.alignRight())
+                .build();
+
+        FONTANDUNDELINE = new TextDecor.Builder()
+                .decorate(TextDecor.font(getBaseContext(), "fonts/Roboto-Thin.ttf"))
+                .decorate(TextDecor.UNDERLINE)
+                .build();
+
+        TEST = new TextDecor.Builder()
+                .decorate(TextDecor.alignLeft())
+                .decorate(TextDecor.test(getBaseContext(), R.drawable.im, 200, 1))
+                .build();
+
+    }
 
 }
