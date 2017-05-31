@@ -7,9 +7,6 @@ import android.view.ViewGroup;
 
 import com.decorator.text.textdecor.PrettyText;
 
-import static com.decorator.text.textdecorator.App.bold;
-import static com.decorator.text.textdecorator.App.roundCorrner;
-
 public class RVdapter extends RecyclerView.Adapter<RVdapter.MyViewHolder> {
 
     @Override
@@ -22,9 +19,9 @@ public class RVdapter extends RecyclerView.Adapter<RVdapter.MyViewHolder> {
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         holder.title.setText(
-                bold.withText("Name at : "),
+                App.getBold().withText("Name at : "),
                 "Position " + position,
-                roundCorrner.withText(" OK ")
+                App.getRoundCorrner2().withText(" OK ")
         );
     }
 
@@ -33,6 +30,10 @@ public class RVdapter extends RecyclerView.Adapter<RVdapter.MyViewHolder> {
         return 1000;
     }
 
+
+    /**
+     * MyViewHolder, holder for views
+     */
     static class MyViewHolder extends RecyclerView.ViewHolder {
 
         private PrettyText title;
