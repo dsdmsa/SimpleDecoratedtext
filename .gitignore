@@ -1,0 +1,7 @@
+
+/.idea/
+/.gradle/
+/build/
+/gradle.properties
+/local.properties
+/simpleDecText.iml

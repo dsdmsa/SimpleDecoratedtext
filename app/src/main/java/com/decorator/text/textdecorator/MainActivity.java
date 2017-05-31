@@ -2,7 +2,6 @@ package com.decorator.text.textdecorator;
 
 import android.graphics.Color;
 import android.graphics.LinearGradient;
-import android.graphics.Paint;
 import android.graphics.Shader;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -13,9 +12,22 @@ import com.decorator.text.textdecor.PrettyText;
 import com.decorator.text.textdecor.TextDecor;
 import com.decorator.text.textdecor.custom_decors.Click;
 
-import org.w3c.dom.Text;
-
-import static com.decorator.text.textdecor.TextDecor.*;
+import static com.decorator.text.textdecor.TextDecor.BOLD;
+import static com.decorator.text.textdecor.TextDecor.Builder;
+import static com.decorator.text.textdecor.TextDecor.UNDERLINE;
+import static com.decorator.text.textdecor.TextDecor.absoluteTextSize;
+import static com.decorator.text.textdecor.TextDecor.addShadow;
+import static com.decorator.text.textdecor.TextDecor.alignCenter;
+import static com.decorator.text.textdecor.TextDecor.alignLeft;
+import static com.decorator.text.textdecor.TextDecor.alignRight;
+import static com.decorator.text.textdecor.TextDecor.clickableText;
+import static com.decorator.text.textdecor.TextDecor.font;
+import static com.decorator.text.textdecor.TextDecor.relativeTextSize;
+import static com.decorator.text.textdecor.TextDecor.replaceTextWithImage;
+import static com.decorator.text.textdecor.TextDecor.setBackground;
+import static com.decorator.text.textdecor.TextDecor.setRoundBackground;
+import static com.decorator.text.textdecor.TextDecor.setTextColor;
+import static com.decorator.text.textdecor.TextDecor.test;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,9 +44,9 @@ public class MainActivity extends AppCompatActivity {
 
         prettyText = (PrettyText) findViewById(R.id.textDecor);
 
-
         TextDecor bold = new Builder()
                 .decorate(BOLD)
+                .decorate(TextDecor.absoluteTextSize(100))
                 .build();
 
         TextDecor fontAndUndeline = new Builder()
@@ -116,20 +128,15 @@ public class MainActivity extends AppCompatActivity {
                 " sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of ",
                 roundRgadient.withText("Lorem Ipsum\n"),
 
-                alRight.withText("right\n/n\n"),
+                alRight.withText("right\n\n"),
                 alRight.withText("right"),
                 alLeft.withText("left\n"),
-                alCenter.withText("center\n/n\n"),
+                alCenter.withText("center\n\n"),
                 image.withText("     "),
-
                 "  \n",
-
                 clikable.withText("\n\n\n  asddsfdgdfdgsdfgsdfgsd fg sdfg sdfg sdf gsd fg sd"),
-
                 "\n\n",
-
                 test.withText("asddsfdgdfdgsdfgsdfgsd fg sdfg sdfg sdf gsd fg sd"),
-
                 "\n"
         );
 
