@@ -10,21 +10,6 @@ import android.widget.Toast;
 import com.decorator.text.textdecor.TextDecor;
 import com.decorator.text.textdecor.custom_decors.Click;
 
-import static com.decorator.text.textdecor.TextDecor.BOLD;
-import static com.decorator.text.textdecor.TextDecor.UNDERLINE;
-import static com.decorator.text.textdecor.TextDecor.absoluteTextSize;
-import static com.decorator.text.textdecor.TextDecor.addShadow;
-import static com.decorator.text.textdecor.TextDecor.alignCenter;
-import static com.decorator.text.textdecor.TextDecor.alignLeft;
-import static com.decorator.text.textdecor.TextDecor.alignRight;
-import static com.decorator.text.textdecor.TextDecor.clickableText;
-import static com.decorator.text.textdecor.TextDecor.font;
-import static com.decorator.text.textdecor.TextDecor.relativeTextSize;
-import static com.decorator.text.textdecor.TextDecor.replaceTextWithImage;
-import static com.decorator.text.textdecor.TextDecor.setBackground;
-import static com.decorator.text.textdecor.TextDecor.setRoundBackground;
-import static com.decorator.text.textdecor.TextDecor.setTextColor;
-import static com.decorator.text.textdecor.TextDecor.test;
 
 /**
  * Created by winify on 5/31/17.
@@ -48,18 +33,18 @@ public class App extends Application{
                 .decorate(TextDecor.font(getBaseContext(), "fonts/Roboto-Thin.ttf"))
                 .build();
         IMAGE = new TextDecor.Builder()
-                .decorate(replaceTextWithImage(getBaseContext(), R.drawable.tst, 300))
-                .decorate(alignRight())
+                .decorate(TextDecor.replaceTextWithImage(getBaseContext(), R.drawable.tst, 300))
+                .decorate(TextDecor.alignRight())
                 .build();
 
         FONTANDUNDELINE = new TextDecor.Builder()
-                .decorate(font(getBaseContext(), "fonts/Roboto-Thin.ttf"))
-                .decorate(UNDERLINE)
+                .decorate(TextDecor.font(getBaseContext(), "fonts/Roboto-Thin.ttf"))
+                .decorate(TextDecor.UNDERLINE)
                 .build();
 
         TEST = new TextDecor.Builder()
-                .decorate(alignLeft())
-                .decorate(test(getBaseContext(), R.drawable.im, 200, 1))
+                .decorate(TextDecor.alignLeft())
+                .decorate(TextDecor.test(getBaseContext(), R.drawable.im, 200, 1))
                 .build();
 
     }
@@ -80,47 +65,47 @@ public class App extends Application{
 
 
     public static TextDecor rbackg = new TextDecor.Builder()
-            .decorate(relativeTextSize(30))
-            .decorate(BOLD)
+            .decorate(TextDecor.relativeTextSize(30))
+            .decorate(TextDecor.BOLD)
             .build();
 
     public static TextDecor bold = new TextDecor.Builder()
-            .decorate(BOLD)
+            .decorate(TextDecor.BOLD)
             .decorate(TextDecor.absoluteTextSize(100))
             .build();
 
 
     public static TextDecor roundRgadient = new TextDecor.Builder()
-            .decorate(setRoundBackground(9, 2, new LinearGradient(0, 0, 545, 545, Color.CYAN, Color.BLUE, Shader.TileMode.CLAMP), Color.BLACK))
-            .decorate(BOLD)
+            .decorate(TextDecor.setRoundBackground(9, 2, new LinearGradient(0, 0, 545, 545, Color.CYAN, Color.BLUE, Shader.TileMode.CLAMP), Color.BLACK))
+            .decorate(TextDecor.BOLD)
             .build();
 
     public static TextDecor redBack = new TextDecor.Builder()
-            .decorate(BOLD)
-            .decorate(setTextColor(Color.RED))
-            .decorate(setBackground(Color.BLACK))
-            .decorate(absoluteTextSize(50))
+            .decorate(TextDecor.BOLD)
+            .decorate(TextDecor.setTextColor(Color.RED))
+            .decorate(TextDecor.setBackground(Color.BLACK))
+            .decorate(TextDecor.absoluteTextSize(50))
             .build();
 
     public static TextDecor shadowCol = new TextDecor.Builder()
-            .decorate(addShadow(2, 2, 5, Color.BLACK))
-            .decorate(absoluteTextSize(40))
+            .decorate(TextDecor.addShadow(2, 2, 5, Color.BLACK))
+            .decorate(TextDecor.absoluteTextSize(40))
             .build();
 
     public static TextDecor alRight = new TextDecor.Builder()
-            .decorate(alignCenter())
+            .decorate(TextDecor.alignCenter())
             .build();
 
     public static TextDecor alLeft = new TextDecor.Builder()
-            .decorate(alignLeft())
+            .decorate(TextDecor.alignLeft())
             .build();
 
     public static TextDecor alCenter = new TextDecor.Builder()
-            .decorate(alignRight())
+            .decorate(TextDecor.alignRight())
             .build();
 
     public static TextDecor clikable = new TextDecor.Builder()
-            .decorate(clickableText(new Click(Color.BLACK, Color.CYAN) {
+            .decorate(TextDecor.clickableText(new Click(Color.BLACK, Color.CYAN) {
                 @Override
                 public void onClick(View view) {
                     Toast.makeText(view.getContext(), "toast", Toast.LENGTH_LONG).show();
@@ -132,11 +117,11 @@ public class App extends Application{
 
 
     public static TextDecor roundCorrner = new TextDecor.Builder()
-            .decorate(setRoundBackground(15, 1, Color.YELLOW, Color.BLACK))
+            .decorate(TextDecor.setRoundBackground(15, 1, Color.YELLOW, Color.BLACK))
             .build();
 
     public static TextDecor roundCorrner2 = new TextDecor.Builder()
-            .decorate(setRoundBackground(0, 1, Color.YELLOW, Color.BLACK))
+            .decorate(TextDecor.setRoundBackground(0, 1, Color.YELLOW, Color.BLACK))
             .build();
 
 }
