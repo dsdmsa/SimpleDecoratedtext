@@ -4,11 +4,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.text.Layout;
-import android.text.TextPaint;
-import android.text.style.CharacterStyle;
 import android.widget.TextView;
-
-import com.decorator.text.textdecor.spans.Decoration;
 
 /**
  * Created by caifangmao on 15/2/13.

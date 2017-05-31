@@ -35,9 +35,7 @@ public class ArrowBackgroundSpan extends BackgroundSpannable {
         if(linePosition != LinePosition.LinePositionMiddle){
             startArrow.reset();
             endArrow.reset();
-//
             int halfHeight = height / 2;
-//
             float startP = (float) (-Math.PI / 2);
             float perP = (float) ((Math.PI * 2) / 10);
 
@@ -71,7 +69,6 @@ public class ArrowBackgroundSpan extends BackgroundSpannable {
             endArrow.lineTo(width, height - halfHeight);
             endArrow.lineTo(width - halfHeight, height);
             endArrow.close();
-
 
         }
 

@@ -4,13 +4,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ddfffc"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     tools:context="com.decorator.text.textdecorator.MainActivity">
 
     <com.decorator.text.textdecor.PrettyText
         android:id="@+id/textDecor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_margin="10dp" />
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:id="@+id/rv"
+        android:layout_height="match_parent" />
 
 </LinearLayout>
