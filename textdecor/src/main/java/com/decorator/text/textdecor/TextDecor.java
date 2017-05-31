@@ -35,24 +35,35 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * with this class you can create text decoration rules that you can aplly to you text
+ * with this class you can create text decoration rules that you can aplly to you text.
  */
 public class TextDecor {
     private List<String> strings = new ArrayList<>();
     private List<Decoration> characterStyles = new ArrayList<>();
 
+    /**
+     * builder class for TextDecor.
+     *
+     * @param builder
+     */
     private TextDecor(Builder builder) {
         this.characterStyles = builder.decorations;
     }
 
+    /**
+     * getText method used inside text decor
+     *
+     * @return
+     */
     protected String getText() {
-        String  text = strings.get(0);
+        String text = strings.get(0);
         strings.remove(0);
         return text;
     }
 
     /**
-     *  use this method to specify what text is using the text decor rule that you created
+     * use this method to specify what text is using the text decor rule that you created.
+     *
      * @param text
      * @return
      */
@@ -62,25 +73,31 @@ public class TextDecor {
     }
 
     /**
+     * method used to decorate text
      *
      * @param spannableString
      * @param firstCharIndex
      * @param lastCharIndex
      */
-   protected void decorateText(SpannableString spannableString, int firstCharIndex, int lastCharIndex) {
+    protected void decorateText(SpannableString spannableString,
+                                int firstCharIndex,
+                                int lastCharIndex) {
         for (Decoration characterStyle : characterStyles) {
-            spannableString.setSpan(characterStyle.newDecorInstance(), firstCharIndex, lastCharIndex, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+            spannableString.setSpan(characterStyle.newDecorInstance(),
+                    firstCharIndex, lastCharIndex, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
         }
     }
 
     /**
-     * with this builder you start adding rules to you object
+     * with this builder you start adding rules to you object.
      */
     public static class Builder {
+
         private List<Decoration> decorations = new ArrayList<>();
 
         /**
-         * add the rules to you rule class
+         * add the rules to you rule class.
+         *
          * @param decoration
          * @return
          */
@@ -90,20 +107,14 @@ public class TextDecor {
         }
 
         /**
-         * instantiate decor class eith rules
+         * instantiate decor class eith rules.
+         *
          * @return
          */
         public TextDecor build() {
             return new TextDecor(this);
         }
     }
-
-
-    /**
-     * decorations withowt parrams
-     * Static final decorations
-     */
-
 
     /**
      * adds underline to selected text
@@ -125,7 +136,10 @@ public class TextDecor {
         }
     };
 
-    public static Decoration TRANSPARENT_BACKGROUND = new Decoration(){
+    /**
+     * TRANSPARENT_BACKGROUND decoration
+     */
+    public static Decoration TRANSPARENT_BACKGROUND = new Decoration() {
         @Override
         public CharacterStyle newDecorInstance() {
             return new BackgroundColorSpan(Color.TRANSPARENT);
@@ -181,7 +195,7 @@ public class TextDecor {
         };
     }
 
-    public static Decoration absoluteTextSize(final int size){
+    public static Decoration absoluteTextSize(final int size) {
         return new Decoration() {
             @Override
             public CharacterStyle newDecorInstance() {
@@ -190,7 +204,7 @@ public class TextDecor {
         };
     }
 
-    public  static Decoration relativeTextSize(final int size){
+    public static Decoration relativeTextSize(final int size) {
         return new Decoration() {
             @Override
             public CharacterStyle newDecorInstance() {
@@ -199,11 +213,11 @@ public class TextDecor {
         };
     }
 
-    public static Decoration font(final Context context, final String font){
+    public static Decoration font(final Context context, final String font) {
         return new Decoration() {
             @Override
             public CharacterStyle newDecorInstance() {
-                return new CustomTypefaceSpan(font, FontUtil.get(context,font));
+                return new CustomTypefaceSpan(font, FontUtil.get(context, font));
             }
         };
     }
@@ -231,22 +245,34 @@ public class TextDecor {
     /**
      * need improvment, not working correctly
      * better work allone
+     *
      * @param corner
      * @param padding
      * @param backgroundColor
      * @param textColor
      * @return
      */
-    public static Decoration setRoundBackground(final int corner, final int padding, final int backgroundColor, final int textColor, final RoundedBackgroundSpan.Gravity gravity) {
+    public static Decoration setRoundBackground(final int corner,
+                                                final int padding,
+                                                final int backgroundColor,
+                                                final int textColor,
+                                                final RoundedBackgroundSpan.Gravity gravity) {
         return new Decoration() {
             @Override
             public ReplacementSpan newDecorInstance() {
-                return new RoundedBackgroundSpan(corner, padding, backgroundColor, textColor, gravity);
+                return new RoundedBackgroundSpan(corner,
+                        padding,
+                        backgroundColor,
+                        textColor,
+                        gravity);
             }
         };
     }
 
-    public static Decoration setRoundBackground(final int corner, final int padding, final int backgroundColor, final int textColor) {
+    public static Decoration setRoundBackground(final int corner,
+                                                final int padding,
+                                                final int backgroundColor,
+                                                final int textColor) {
         return new Decoration() {
             @Override
             public ReplacementSpan newDecorInstance() {
@@ -255,7 +281,10 @@ public class TextDecor {
         };
     }
 
-    public static Decoration setRoundBackground(final int corner, final int padding, final LinearGradient backgroundColor, final int textColor) {
+    public static Decoration setRoundBackground(final int corner,
+                                                final int padding,
+                                                final LinearGradient backgroundColor,
+                                                final int textColor) {
         return new Decoration() {
             @Override
             public ReplacementSpan newDecorInstance() {
@@ -264,17 +293,20 @@ public class TextDecor {
         };
     }
 
-    public static Decoration addShadow(final float dx, final float dy, final float radius, final int color) {
+    public static Decoration addShadow(final float dx,
+                                       final float dy,
+                                       final float radius,
+                                       final int color) {
         return new Decoration() {
             @Override
             public CharacterStyle newDecorInstance() {
-                return new ShadowSpan(dx,dy,radius,color);
+                return new ShadowSpan(dx, dy, radius, color);
             }
         };
     }
 
 
-    public static Decoration alignRight( ) {
+    public static Decoration alignRight() {
         return new Decoration() {
             @Override
             public AlignmentSpan newDecorInstance() {
@@ -283,7 +315,7 @@ public class TextDecor {
         };
     }
 
-    public static Decoration alignLeft( ) {
+    public static Decoration alignLeft() {
         return new Decoration() {
             @Override
             public AlignmentSpan newDecorInstance() {
@@ -292,7 +324,7 @@ public class TextDecor {
         };
     }
 
-    public static Decoration alignCenter( ) {
+    public static Decoration alignCenter() {
         return new Decoration() {
             @Override
             public AlignmentSpan newDecorInstance() {
@@ -301,7 +333,9 @@ public class TextDecor {
         };
     }
 
-    public static Decoration replaceTextWithImage(final Context context ,final int id,final int size) {
+    public static Decoration replaceTextWithImage(final Context context,
+                                                  final int id,
+                                                  final int size) {
         return new Decoration() {
             @Override
             public ImageSpan newDecorInstance() {
@@ -324,8 +358,9 @@ public class TextDecor {
     }
 
 
-
-    public static Decoration test(final Context context ,final int id,final int size,final int alignament) {
+    public static Decoration test(final Context context, final int id,
+                                  final int size,
+                                  final int alignament) {
         return new Decoration() {
             @Override
             public CenteredImageSpan newDecorInstance() {
@@ -333,7 +368,7 @@ public class TextDecor {
                 if (d != null) {
                     d.setBounds(0, 0, size, size);
                 }
-                return new CenteredImageSpan(d,alignament);
+                return new CenteredImageSpan(d, alignament);
             }
         };
     }
