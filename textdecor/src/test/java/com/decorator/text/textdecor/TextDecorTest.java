@@ -1,31 +1,34 @@
 package com.decorator.text.textdecor;
 
 import org.junit.Test;
-import org.mockito.Mock;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class TextDecorTest {
 
     private static final String TEXT = "text";
 
-     TextDecor textDecor = new TextDecor.Builder().build();
+    private TextDecor textDecor = new TextDecor.Builder().build();
 
-    @Test public void buildTextDecor(){
+    @Test
+    public void buildTextDecor() {
         assertNotNull(textDecor);
     }
 
-    @Test public void getSameText(){
+    @Test
+    public void getSameText() {
         textDecor.withText(TEXT);
-        assertEquals(TEXT,textDecor.getText());
+        assertEquals(TEXT, textDecor.getText());
     }
 
-    @Test public void addingTest(){
+    @Test
+    public void addingTest() {
         textDecor.withText(TEXT);
-        assertEquals(TEXT.length(),textDecor.getText().length());
+        assertEquals(TEXT.length(), textDecor.getText().length());
         textDecor.withText(TEXT);
         textDecor.withText(TEXT);
-        assertEquals(TEXT.length()*2,textDecor.getText().length() + textDecor.getText().length());
+        assertEquals(TEXT.length() * 2, textDecor.getText().length() + textDecor.getText().length());
     }
 
 

@@ -38,7 +38,6 @@ import java.util.List;
  * with this class you can create text decoration rules that you can aplly to you text
  */
 public class TextDecor {
-    private String text;
     private List<String> strings = new ArrayList<>();
     private List<Decoration> characterStyles = new ArrayList<>();
 
@@ -46,8 +45,8 @@ public class TextDecor {
         this.characterStyles = builder.decorations;
     }
 
-    String getText() {
-        text = strings.get(0);
+    protected String getText() {
+        String  text = strings.get(0);
         strings.remove(0);
         return text;
     }
@@ -62,7 +61,7 @@ public class TextDecor {
         return this;
     }
 
-    void decorateText(SpannableString spannableString, int firstCharIndex, int lastCharIndex) {
+   protected void decorateText(SpannableString spannableString, int firstCharIndex, int lastCharIndex) {
         for (Decoration characterStyle : characterStyles) {
             spannableString.setSpan(characterStyle.newDecorInstance(), firstCharIndex, lastCharIndex, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
         }
